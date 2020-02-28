@@ -202,6 +202,22 @@ TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitio
 TransitionExtensionKt.onTransformationEndContainer(this, params);
 ```
 
+### OnTransformFinishListener
+We can listen a `TransformationLayout` is transformed or not using `OnTransformFinishListener`. <br>
+```kotlin
+transformationLayout.setOnTransformFinishListener {
+  Toast.makeText(context, "is transformed: $it", Toast.LENGTH_SHORT).show()
+}
+```
+Here is the Java way.
+```java
+transformationLayout.onTransformFinishListener = new OnTransformFinishListener() {
+  @Override public void onFinish(boolean isTransformed) {
+    Toast.makeText(context, "is transformed:" + isTransformed, Toast.LENGTH_SHORT).show();
+  }
+};
+```
+
 ## TransformationLayout Attributes
 Attributes | Type | Default | Description
 --- | --- | --- | ---
