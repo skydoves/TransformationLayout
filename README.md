@@ -2,7 +2,7 @@
 
 <h1 align="center">TransformationLayout</h1></br>
 <p align="center"> 
-🌠 Transform into other views or activities through morphing transformation animations.
+🌠 Transform into a different view or activity using morphing animations.
 <br>Using<a href="https://material.io/design/motion/the-motion-system.html" target="_blank"> Transformation motions </a> of new material version.
 </p>
 </br>
