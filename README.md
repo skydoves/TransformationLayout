@@ -126,8 +126,12 @@ myCardView.setOnClickListener {
 ```
 
 ### Transition between View and Activity
+
+<img src="/preview/preview2.gif" align="right" width="32%"/>
+
 Here is an example of a transforming floating action button to Activity. <br>
 We don't need to bind a targetView.
+
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
     android:id="@+id/transformationLayout"
@@ -144,9 +148,7 @@ We don't need to bind a targetView.
 </com.skydoves.transformationlayout.TransformationLayout>
 ```
 #### onTransformationStartContainer
-We should add `onTransformationStartContainer()` to the Activity that has the floating action button. <br>
-If your view is in the fragment, that code should be added to the fragment's Activity. <br>
-It must be added before `super.onCreate`.
+We should add `onTransformationStartContainer()` to the Activity that has the floating action button. If your view is in the fragment, that code should be added to the fragment's Activity. It must be added before `super.onCreate`.
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     onTransformationStartContainer() // should be called before super.onCreate().
