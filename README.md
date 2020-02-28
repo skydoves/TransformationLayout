@@ -68,7 +68,7 @@ We must wrap the views which we want to transform.
 </com.skydoves.transformationlayout.TransformationLayout>
 ```
 
-### Transition between Views
+### Transform into a view
 Here is an simple example to transform view A to B.
 
 <img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="32%"/>
@@ -127,7 +127,7 @@ myCardView.setOnClickListener {
 }
 ```
 
-### Transition between View and Activity
+### Transform into an Activity
 
 <img src="/preview/preview2.gif" align="right" width="32%"/>
 
