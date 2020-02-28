@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
+
+android {
+  compileSdkVersion versions.compileSdk
+  defaultConfig {
+    applicationId "com.skydoves.transformationlayoutdemo"
+    minSdkVersion versions.minSdk
+    targetSdkVersion versions.compileSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+  }
+  androidExtensions {
+    experimental = true
+  }
+}
+
+dependencies {
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+  implementation "com.google.android.material:material:$versions.googleMaterial"
+  implementation "androidx.constraintlayout:constraintlayout:$versions.constraintVersion"
+  implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
+  kapt "com.github.bumptech.glide:compiler:$versions.glideVersion"
+  implementation project(":transformationlayout")
+}
+
+apply from: '../spotless.gradle'

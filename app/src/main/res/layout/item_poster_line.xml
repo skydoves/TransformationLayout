@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/item_poster_line_transformationLayout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  app:transformation_duration="500">
+
+  <com.google.android.material.card.MaterialCardView
+    android:id="@+id/item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/background800"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/background800"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:foreground="?attr/selectableItemBackground"
+      android:orientation="vertical"
+      android:padding="8dp"
+      tools:ignore="UnusedAttribute">
+
+      <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/item_poster_post"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_poster_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/item_poster_running_time"
+        app:layout_constraintStart_toEndOf="@id/item_poster_post"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Zootopia" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_poster_running_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:textColor="@color/white_87"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_poster_post"
+        app:layout_constraintTop_toBottomOf="@+id/item_poster_title"
+        tools:text="1 h 45 min" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
+</com.skydoves.transformationlayout.TransformationLayout>

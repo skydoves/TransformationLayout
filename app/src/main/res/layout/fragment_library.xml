@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/container"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/background">
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:paddingBottom="68dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    tools:listitem="@layout/item_poster_line" />
+
+  <com.skydoves.transformationlayout.TransformationLayout
+    android:id="@+id/transformationLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="24dp"
+    android:layout_marginBottom="24dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:transformation_duration="550"
+    app:transformation_targetView="@+id/menu_card">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/colorPrimary"
+      android:src="@drawable/ic_play"
+      app:borderWidth="0dp"
+      app:tint="@color/white" />
+  </com.skydoves.transformationlayout.TransformationLayout>
+
+  <LinearLayout
+    android:id="@+id/menu_card"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal"
+    android:weightSum="3"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="0dp"
+      android:layout_height="42dp"
+      android:layout_gravity="center_vertical"
+      android:layout_weight="1"
+      android:rotation="-90"
+      android:src="@drawable/ic_eject" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="0dp"
+      android:layout_height="42dp"
+      android:layout_gravity="center_vertical"
+      android:layout_weight="1"
+      android:src="@drawable/ic_play" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="0dp"
+      android:layout_height="42dp"
+      android:layout_gravity="center_vertical"
+      android:layout_weight="1"
+      android:rotation="90"
+      android:src="@drawable/ic_eject" />
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

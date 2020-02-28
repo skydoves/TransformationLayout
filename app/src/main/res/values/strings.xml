@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">TransformationLayoutDemo</string>
+  <string name="menu_home">Home</string>
+  <string name="menu_library">Library</string>
+  <string name="menu_radio">Radio</string>
+  <string name="description">Description</string>
+</resources>

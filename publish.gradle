@@ -1,0 +1,13 @@
+apply plugin: 'com.novoda.bintray-release'
+apply from: '../dependencies.gradle'
+
+publish {
+  userOrg = 'devmagician'
+  groupId = 'com.github.skydoves'
+  artifactId = 'transformationlayout'
+  publishVersion = versions.versionName
+  desc = 'Transform into other views or activities through morphing transformation animations.'
+  website = 'https://github.com/skydoves/transformationlayout'
+  issueTracker = "${website}/issues"
+  repository = "${website}.git"
+}
