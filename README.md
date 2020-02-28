@@ -164,9 +164,9 @@ TransitionExtensionKt.onTransformationStartContainer(this);
 #### startActivity
 And we should call `startActivity` with bundle and intent data.<br>
 We should get a `bundle` using `withActivity` method. It needs a context and any name of transition. <br>
-The `bundle` will be into the `startActivity`'s parameter.<br>
-And we should put extra data to the intent using `getParcelableParams()` method.<br>
-The extra name can be anything. But it will be reused later.
+The `bundle` must be used as `startActivity`'s parameter.<br>
+We should put parcelable data to the intent using `getParcelableParams()` method.<br>
+The extra name of the parcelable data can be anything, and it will be reused later.
 ```kotlin
 fab.setOnClickListener {
     val bundle = transformationLayout.withActivity(this, "myTransitionName")
@@ -197,7 +197,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Here is the Java way.
 ```java
-TransformationLayout.Params params = (getIntent().getParcelableExtra("myTransitionName"));
+TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitionName");
 TransitionExtensionKt.onTransformationEndContainer(this, params);
 ```
 
