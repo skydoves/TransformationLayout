@@ -148,7 +148,7 @@ We don't need to bind a targetView.
 </com.skydoves.transformationlayout.TransformationLayout>
 ```
 #### onTransformationStartContainer
-We should add `onTransformationStartContainer()` to the Activity that has the floating action button. If your view is in the fragment, that code should be added to the fragment's Activity. It must be added before `super.onCreate`.
+We should add `onTransformationStartContainer()` to the Activity that has the floating action button. If your view is in the fragment, the code should be added to the fragment's Activity. It must be called before `super.onCreate`.
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     onTransformationStartContainer() // should be called before super.onCreate().
