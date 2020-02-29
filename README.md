@@ -14,6 +14,9 @@
   <a href="https://github.com/skydoves"><img alt="License" src="https://img.shields.io/static/v1?label=GitHub&message=skydoves&color=C51162"/></a> 
 </p>
 
+## Download
+Go to the [Releases](https://github.com/skydoves/TransformationLayout/releases) to download the demo APK.
+
 ## Screeshots
 <p align="center">
 <img src="/preview/preview0.gif" width="32%"/>
@@ -69,7 +72,7 @@ We must wrap one or more views that we want to transform.
 ```
 
 ### Transform into a view
-Here is an simple example to transform view A to B.
+Here is a simple example of transform fab into a view.
 
 <img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="32%"/>
 
