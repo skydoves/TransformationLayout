@@ -36,7 +36,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.0.0"
+    implementation "com.github.skydoves:transformationlayout:1.0.1"
 }
 ```
 
@@ -49,7 +49,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
 ### TransformationLayout
 Here is a basic example of implementing `TransformationLayout`. <br>
-We must wrap the views which we want to transform.
+We must wrap one or more views that we want to transform.
 
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
@@ -177,6 +177,15 @@ fab.setOnClickListener {
     startActivity(intent, bundle)
 }
 ```
+If we want to get bundle data in RecyclerView or other classes, <br>
+we can use `withView` and `withContext` instead of `withActivty`.
+```kotlin
+// usage in the RecyclerView.Adapter
+override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
+   val bundle = transformationLayout.withView(holder.itemView, "myTransitionName")
+}
+```
+
 Here is the Java way.
 ```java
 Bundle bundle = transformationLayout.withActivity(this, "myTransitionName");

@@ -160,7 +160,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /**
-   * sets an context of the transition and returns a bundle of the transition information.
+   * sets a context of the transition and returns a bundle of the transition information.
    * The return value must be used in startActivity's parameter as a bundle.
    * */
   fun withContext(context: Context, transitionName: String): Bundle {
