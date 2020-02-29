@@ -2,7 +2,7 @@
 
 <h1 align="center">TransformationLayout</h1></br>
 <p align="center"> 
-🌠 Transform into other views or activities through morphing transformation animations.
+🌠 Transform into a different view or activity using morphing animations.
 <br>Using<a href="https://material.io/design/motion/the-motion-system.html" target="_blank"> Transformation motions </a> of new material version.
 </p>
 </br>
@@ -23,6 +23,7 @@
 
 ## Including in your project
 [![Download](https://api.bintray.com/packages/devmagician/maven/transformationlayout/images/download.svg) ](https://bintray.com/devmagician/maven/transformationlayout/_latestVersion)
+[![JitPack](https://jitpack.io/v/skydoves/TransformationLayout.svg)](https://jitpack.io/#skydoves/TransformationLayout)
 ### Gradle 
 Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
 ```gradle
@@ -67,7 +68,7 @@ We must wrap the views which we want to transform.
 </com.skydoves.transformationlayout.TransformationLayout>
 ```
 
-### Transition between Views
+### Transform into a view
 Here is an simple example to transform view A to B.
 
 <img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="32%"/>
@@ -126,7 +127,7 @@ myCardView.setOnClickListener {
 }
 ```
 
-### Transition between View and Activity
+### Transform into an Activity
 
 <img src="/preview/preview2.gif" align="right" width="32%"/>
 
@@ -200,6 +201,22 @@ Here is the Java way.
 ```java
 TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitionName");
 TransitionExtensionKt.onTransformationEndContainer(this, params);
+```
+
+### OnTransformFinishListener
+We can listen a `TransformationLayout` is transformed or not using `OnTransformFinishListener`. <br>
+```kotlin
+transformationLayout.setOnTransformFinishListener {
+  Toast.makeText(context, "is transformed: $it", Toast.LENGTH_SHORT).show()
+}
+```
+Here is the Java way.
+```java
+transformationLayout.onTransformFinishListener = new OnTransformFinishListener() {
+  @Override public void onFinish(boolean isTransformed) {
+    Toast.makeText(context, "is transformed:" + isTransformed, Toast.LENGTH_SHORT).show();
+  }
+};
 ```
 
 ## TransformationLayout Attributes
