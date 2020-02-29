@@ -151,14 +151,34 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /**
-   * sets the stat view of the transition and returns a bundle of the transition information.
+   * sets an activity of the transition and returns a bundle of the transition information.
    * The return value must be used in startActivity's parameter as a bundle.
    * */
-  fun withActivity(context: Context, transitionName: String): Bundle {
-    require(
-      context is Activity) { "withActivity: The context parameter is must an activity's context!" }
+  fun withActivity(activity: Activity, transitionName: String): Bundle {
     setTransitionName(transitionName)
-    return ActivityOptions.makeSceneTransitionAnimation(context, this, transitionName).toBundle()
+    return ActivityOptions.makeSceneTransitionAnimation(activity, this, transitionName).toBundle()
+  }
+
+  /**
+   * sets an context of the transition and returns a bundle of the transition information.
+   * The return value must be used in startActivity's parameter as a bundle.
+   * */
+  fun withContext(context: Context, transitionName: String): Bundle {
+    setTransitionName(transitionName)
+    val activity = context.getActivity()
+    requireNotNull(activity) { "The context parameter is must an activity's context!" }
+    return ActivityOptions.makeSceneTransitionAnimation(activity, this, transitionName).toBundle()
+  }
+
+  /**
+   * sets an view of the transition and returns a bundle of the transition information.
+   * The return value must be used in startActivity's parameter as a bundle.
+   * */
+  fun withView(view: View, transitionName: String): Bundle {
+    setTransitionName(transitionName)
+    val activity = view.context.getActivity()
+    requireNotNull(activity) { "The context parameter is must an activity's context!" }
+    return ActivityOptions.makeSceneTransitionAnimation(activity, this, transitionName).toBundle()
   }
 
   /** gets parameters of the [TransformationLayout.Params]. */

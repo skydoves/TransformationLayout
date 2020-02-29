@@ -54,7 +54,7 @@ class DetailActivity : AppCompatActivity() {
       poster: Poster
     ) {
       if (context is Activity) {
-        val bundle = transformationLayout.withActivity(context, poster.name)
+        val bundle = transformationLayout.withView(transformationLayout, poster.name)
         val intent = Intent(context, DetailActivity::class.java)
         intent.putExtra(parmasExtraName, transformationLayout.getParcelableParams())
         intent.putExtra(posterExtraName, poster)
