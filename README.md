@@ -11,7 +11,7 @@
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
   <a href="https://github.com/skydoves/DisneyMotions/actions"><img alt="Build Status" src="https://github.com/skydoves/TransformationLayout/workflows/Android%20CI/badge.svg"/></a> 
-  <a href="https://github.com/skydoves"><img alt="License" src="https://img.shields.io/static/v1?label=GitHub&message=skydoves&color=C51162"/></a> 
+  <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a>
 </p>
 
 ## Download
@@ -39,7 +39,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.0.1"
+    implementation "com.github.skydoves:transformationlayout:1.0.2"
 }
 ```
 
@@ -116,19 +116,30 @@ transformationLayout.bindTargetView(myCardView)
 
 #### Starting and finishing the transformation
 After binding a targetView, we can start or finish transformation using the below methods.<br>
-The `startTransform` and `finishTransform` methods need a `parent` as a parameter.<br>
-The parent parameter should be the root layout (the highest level layout).
 ```kotlin
 // start transformation when touching the fab.
 fab.setOnClickListener {
-  transformationLayout.startTransform(parent)
+  transformationLayout.startTransform()
 }
 
 // finish transformation when touching the myCardView.
 myCardView.setOnClickListener {
-  transformationLayout.finishTransform(parent)
+  transformationLayout.finishTransform()
 }
 ```
+Here are other functionalities to starting and finishing transformation.
+
+```kotlin
+// starts and finishes transformation 1000 milliseconds later.
+// If we use this method on onCreate() method, it will starts transformation automatically 200ms later.
+transformationLayout.startTransformWithDelay(200)
+transformationLayout.finishTransformWithDelay(200)
+
+// starts and finishes transformation with stopping a parent layout.
+transformationLayout.startTransform(parent)
+transformationLayout.finishTransform(parent)
+```
+
 
 ### Transform into an Activity
 
@@ -189,7 +200,7 @@ override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
 }
 ```
 
-Here is the Java way.
+Here is the __Java__ way.
 ```java
 Bundle bundle = transformationLayout.withActivity(this, "myTransitionName");
 Intent intent = new Intent(this, DetailActivity.class);
@@ -209,7 +220,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-Here is the Java way.
+Here is the __Java__ way.
 ```java
 TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitionName");
 TransitionExtensionKt.onTransformationEndContainer(this, params);
@@ -222,7 +233,7 @@ transformationLayout.setOnTransformFinishListener {
   Toast.makeText(context, "is transformed: $it", Toast.LENGTH_SHORT).show()
 }
 ```
-Here is the Java way.
+Here is the __Java__ way.
 ```java
 transformationLayout.onTransformFinishListener = new OnTransformFinishListener() {
   @Override public void onFinish(boolean isTransformed) {
