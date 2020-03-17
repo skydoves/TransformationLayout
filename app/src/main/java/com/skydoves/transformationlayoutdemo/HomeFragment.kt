@@ -26,7 +26,6 @@ import com.skydoves.transformationlayoutdemo.MockUtil.getMockPosters
 import com.skydoves.transformationlayoutdemo.recycler.PosterAdapter
 import com.skydoves.transformationlayoutdemo.recycler.PosterMenuAdapter
 import kotlinx.android.synthetic.main.fragment_home.backgroundView
-import kotlinx.android.synthetic.main.fragment_home.container
 import kotlinx.android.synthetic.main.fragment_home.fab
 import kotlinx.android.synthetic.main.fragment_home.menu_home
 import kotlinx.android.synthetic.main.fragment_home.recyclerView
@@ -53,14 +52,14 @@ class HomeFragment : Fragment() {
       if (!transformationLayout.isTransforming) {
         backgroundView.visibility = View.VISIBLE
       }
-      transformationLayout.startTransform(container)
+      transformationLayout.startTransform()
     }
 
     menu_home.setOnClickListener {
       if (!transformationLayout.isTransforming) {
         backgroundView.visibility = View.GONE
       }
-      transformationLayout.finishTransform(container)
+      transformationLayout.finishTransform()
       Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
     }
   }

@@ -24,7 +24,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.transformationlayoutdemo.MockUtil.getMockPosters
 import com.skydoves.transformationlayoutdemo.recycler.PosterLineAdapter
-import kotlinx.android.synthetic.main.fragment_library.container
 import kotlinx.android.synthetic.main.fragment_library.fab
 import kotlinx.android.synthetic.main.fragment_library.menu_card
 import kotlinx.android.synthetic.main.fragment_library.recyclerView
@@ -46,11 +45,11 @@ class LibraryFragment : Fragment() {
     recyclerView.adapter = PosterLineAdapter().apply { addPosterList(getMockPosters()) }
 
     fab.setOnClickListener {
-      transformationLayout.startTransform(container)
+      transformationLayout.startTransform()
     }
 
     menu_card.setOnClickListener {
-      transformationLayout.finishTransform(container)
+      transformationLayout.finishTransform()
       Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
     }
   }

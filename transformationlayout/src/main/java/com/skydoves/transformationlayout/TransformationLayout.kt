@@ -201,26 +201,64 @@ class TransformationLayout : FrameLayout, TransformationParams {
     return getParams()
   }
 
-  /** starts transforming with delaying the container view. */
+  /** starts transforming the [TransformationLayout] into targetView with stopping container. */
   fun startTransform(container: ViewGroup) {
-    require(::targetView.isInitialized) {
-      "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
-        "If you already set targetView, check you use duplicated resource id to the TransformLayout."
-    }
-    if (!isTransformed && !isTransforming) {
-      beginDelayingAndTransform(container, this, targetView)
+    container.post {
+      require(::targetView.isInitialized) {
+        "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
+          "If you already set targetView, check you use duplicated resource id to the TransformLayout."
+      }
+      if (!isTransformed && !isTransforming) {
+        beginDelayingAndTransform(container, this, targetView)
+      }
     }
   }
 
-  /** re-transforming with delaying the container view. */
+  /** starts transforming the [TransformationLayout] into targetView with delaying. */
+  fun startTransformWithDelay(container: ViewGroup, delay: Long) {
+    postDelayed({
+      startTransform(container)
+    }, delay)
+  }
+
+  /** starts transforming the [TransformationLayout] into targetView with stopping parent. */
+  fun startTransform() {
+    startTransform(parent as ViewGroup)
+  }
+
+  /** starts transforming the [TransformationLayout] into targetView with stopping parent with delaying. */
+  fun startTransformWithDelay(delay: Long) {
+    startTransformWithDelay(parent as ViewGroup, delay)
+  }
+
+  /** transforming the targetView into [TransformationLayout]. */
   fun finishTransform(container: ViewGroup) {
-    require(::targetView.isInitialized) {
-      "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
-        "If you already set targetView, check you use duplicated resource id to the TransformLayout."
+    container.post {
+      require(::targetView.isInitialized) {
+        "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
+          "If you already set targetView, check you use duplicated resource id to the TransformLayout."
+      }
+      if (isTransformed && !isTransforming) {
+        beginDelayingAndTransform(container, targetView, this)
+      }
     }
-    if (isTransformed && !isTransforming) {
-      beginDelayingAndTransform(container, targetView, this)
-    }
+  }
+
+  /** transforming the targetView into [TransformationLayout] with delaying. */
+  fun finishTransformWithDelay(container: ViewGroup, delay: Long) {
+    postDelayed({
+      finishTransform(container)
+    }, delay)
+  }
+
+  /** transforming the targetView into [TransformationLayout] with stopping parent. */
+  fun finishTransform() {
+    finishTransform(parent as ViewGroup)
+  }
+
+  /** transforming the targetView into [TransformationLayout] with stopping parent with delaying.. */
+  fun finishTransformWithDelay(delay: Long) {
+    finishTransformWithDelay(parent as ViewGroup, delay)
   }
 
   private fun beginDelayingAndTransform(container: ViewGroup, mStartView: View, mEndView: View) {
