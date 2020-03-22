@@ -24,7 +24,7 @@ import androidx.core.app.ActivityCompat
 object TransformationCompat {
 
   /** A common definition of the activity's transition name. */
-  const val activityTransitionName: String = "com.skydoves.transformationlayout"
+  internal const val activityTransitionName: String = "com.skydoves.transformationlayout"
 
   /** Invalidate the activity's options menu, if able. */
   fun startActivity(

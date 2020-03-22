@@ -39,7 +39,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.0.2"
+    implementation "com.github.skydoves:transformationlayout:1.0.3"
 }
 ```
 
@@ -140,12 +140,82 @@ transformationLayout.startTransform(parent)
 transformationLayout.finishTransform(parent)
 ```
 
+### OnTransformFinishListener
+We can listen a `TransformationLayout` is transformed or not using `OnTransformFinishListener`. <br>
+```kotlin
+transformationLayout.setOnTransformFinishListener {
+  Toast.makeText(context, "is transformed: $it", Toast.LENGTH_SHORT).show()
+}
+```
+Here is the __Java__ way.
+```java
+transformationLayout.onTransformFinishListener = new OnTransformFinishListener() {
+  @Override public void onFinish(boolean isTransformed) {
+    Toast.makeText(context, "is transformed:" + isTransformed, Toast.LENGTH_SHORT).show();
+  }
+};
+```
 
 ### Transform into an Activity
+We can implement transformation between activities easily using `TransformationActivity` and `TransformationCompat`.
 
 <img src="/preview/preview2.gif" align="right" width="32%"/>
 
-Here is an example of a transforming floating action button to Activity. <br>
+Here is an example of transforming a floating action button to Activity. <br>
+We don't need to bind a targetView.
+
+```gradle
+<com.skydoves.transformationlayout.TransformationLayout
+    android:id="@+id/transformationLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:transformation_duration="550">
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/colorPrimary"
+      android:src="@drawable/ic_write"/>
+</com.skydoves.transformationlayout.TransformationLayout>
+```
+#### onTransformationStartContainer
+We should add `onTransformationStartContainer()` to the Activity that has the floating action button. If your view is in the fragment, the code should be added to the fragment's Activity. It must be called before `super.onCreate`.
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    onTransformationStartContainer() // should be called before super.onCreate().
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+}
+```
+Here is the Java way.
+```java
+TransitionExtensionKt.onTransformationStartContainer(this);
+```
+
+#### TransformationAppCompatActivity
+Extends `TransformationAppCompatActivity` or `TransformationActivity` to your activity that will be transformed.
+```kotlin
+class DetailActivity : TransformationAppCompatActivity()
+```
+
+#### TransformationCompat
+And start the `DetailActivity` using the `TransformationCompat.startActivity` method.
+```kotlin
+val intent = Intent(context, DetailActivity::class.java)
+TransformationCompat.startActivity(transformationLayout, intent)
+```
+Here is the Java way.
+```java
+Intent intent = new Intent(context, DetailActivity.class);
+TransformationCompat.INSTANCE.startActivity(transformationLayout, intent);
+```
+
+### Manually Transform into an Activity
+
+<img src="/preview/preview2.gif" align="right" width="32%"/>
+
+Here is an example of transforming a floating action button to Activity. <br>
 We don't need to bind a targetView.
 
 ```gradle
@@ -224,22 +294,6 @@ Here is the __Java__ way.
 ```java
 TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitionName");
 TransitionExtensionKt.onTransformationEndContainer(this, params);
-```
-
-### OnTransformFinishListener
-We can listen a `TransformationLayout` is transformed or not using `OnTransformFinishListener`. <br>
-```kotlin
-transformationLayout.setOnTransformFinishListener {
-  Toast.makeText(context, "is transformed: $it", Toast.LENGTH_SHORT).show()
-}
-```
-Here is the __Java__ way.
-```java
-transformationLayout.onTransformFinishListener = new OnTransformFinishListener() {
-  @Override public void onFinish(boolean isTransformed) {
-    Toast.makeText(context, "is transformed:" + isTransformed, Toast.LENGTH_SHORT).show();
-  }
-};
 ```
 
 ## TransformationLayout Attributes
