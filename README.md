@@ -198,6 +198,10 @@ Extends `TransformationAppCompatActivity` or `TransformationActivity` to your ac
 ```kotlin
 class DetailActivity : TransformationAppCompatActivity()
 ```
+Here is the Java way.
+```java
+public class DetailActivity extends TransformationAppCompatActivity 
+```
 
 #### TransformationCompat
 And start the `DetailActivity` using the `TransformationCompat.startActivity` method.
