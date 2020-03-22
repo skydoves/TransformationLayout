@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <declare-styleable name="TransformationLayout">
+    <!-- A target view that will be transformed from TransformationLayout. -->
     <attr name="transformation_targetView" format="reference" />
+    <!-- Duration of the transformation. -->
     <attr name="transformation_duration" format="integer" />
+    <!-- Motion of the transformation path. -->
     <attr name="transformation_pathMode" format="enum">
       <enum name="arc" value="0" />
       <enum name="linear" value="1" />
     </attr>
+    <!-- The id of the View whose overlay TransitionDrawable will be added to. -->
     <attr name="transformation_zOrder" format="integer" />
+    <!-- The container color to be used as the background of the morphing container. -->
     <attr name="transformation_containerColor" format="color" />
+    <!-- The color to be drawn under the morphing container but within the bounds of the zOrder. -->
     <attr name="transformation_scrimColor" format="color" />
+    <!-- The Direction to be used by this transform. -->
     <attr name="transformation_direction" format="enum">
       <enum name="auto" value="0" />
       <enum name="entering" value="1" />
       <enum name="returning" value="2" />
     </attr>
+    <!-- The FadeMode to be used to swap the content of the start View with that of the end View. -->
     <attr name="transformation_fadeMode" format="enum">
       <enum name="in" value="0" />
       <enum name="out" value="1" />
       <enum name="cross" value="2" />
       <enum name="through" value="3" />
     </attr>
+    <!-- The FitMode to be used when scaling the incoming content of the end View. -->
     <attr name="transformation_fitMode" format="enum">
       <enum name="auto" value="0" />
       <enum name="width" value="1" />

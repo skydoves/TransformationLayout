@@ -38,19 +38,39 @@ import kotlinx.android.parcel.Parcelize
 
 class TransformationLayout : FrameLayout, TransformationParams {
 
+  /** A target view that will be transformed from [TransformationLayout]. */
   private lateinit var targetView: View
+
+  /** Presents [TransformationLayout] is already transformed or not.  */
   var isTransformed: Boolean = false
     private set
+
+  /** Presents [TransformationLayout] is during transforming or not. */
   var isTransforming: Boolean = false
     private set
 
+  /** Duration of the transformation. */
   override var duration: Long = DefaultParamValues.duration
+
+  /** [Motion] of the transformation path. */
   override var pathMotion: Motion = DefaultParamValues.pathMotion
+
+  /** The id of the View whose overlay TransitionDrawable will be added to. */
   override var zOrder: Int = DefaultParamValues.zOrder
+
+  /** The container color to be used as the background of the morphing container. */
   @ColorInt override var containerColor: Int = DefaultParamValues.containerColor
+
+  /** The color to be drawn under the morphing container but within the bounds of the zOrder. */
   @ColorInt override var scrimColor: Int = DefaultParamValues.scrimColor
+
+  /** The [Direction] to be used by this transform. */
   override var direction: Direction = DefaultParamValues.direction
+
+  /** The [FadeMode] to be used to swap the content of the start View with that of the end View. */
   override var fadeMode: FadeMode = DefaultParamValues.fadeMode
+
+  /** The [FitMode] to be used when scaling the incoming content of the end View. */
   override var fitMode: FitMode = DefaultParamValues.fitMode
 
   @JvmField var onTransformFinishListener: OnTransformFinishListener? = null
@@ -311,6 +331,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
     var transitionName: String
   ) : Parcelable, TransformationParams
 
+  /** The [Direction] to be used by this transform. */
   enum class Direction(val value: Int) {
     /**
      * Indicates that this transition should use automatic detection to determine whether it is an
@@ -326,6 +347,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
     RETURN(MaterialContainerTransform.TRANSITION_DIRECTION_RETURN)
   }
 
+  /** The [FadeMode] to be used to swap the content of the start View with that of the end View. */
   enum class FadeMode(val value: Int) {
     /**
      * Indicates that this transition should only fade in the incoming content, without changing the
@@ -348,6 +370,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
     THROUGH(MaterialContainerTransform.FADE_MODE_THROUGH)
   }
 
+  /** The [FitMode] to be used when scaling the incoming content of the end View. */
   enum class FitMode(val value: Int) {
     /**
      * Indicates that this transition should automatically choose whether to use {@link
