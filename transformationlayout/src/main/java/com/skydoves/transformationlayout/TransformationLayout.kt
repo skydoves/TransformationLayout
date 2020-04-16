@@ -289,7 +289,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   private fun getTransform(mStartView: View, mEndView: View): MaterialContainerTransform {
-    return MaterialContainerTransform(mStartView.context).apply {
+    return MaterialContainerTransform().apply {
       startView = mStartView
       endView = mEndView
       duration = this@TransformationLayout.duration

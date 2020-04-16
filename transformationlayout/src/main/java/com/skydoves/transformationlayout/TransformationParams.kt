@@ -44,9 +44,9 @@ internal object DefaultParamValues : TransformationParams {
   override var fitMode: TransformationLayout.FitMode = TransformationLayout.FitMode.AUTO
 }
 
-internal fun TransformationParams.getMaterialContainerTransform(context: Context): MaterialContainerTransform {
+internal fun TransformationParams.getMaterialContainerTransform(): MaterialContainerTransform {
   val params = this
-  return MaterialContainerTransform(context).apply {
+  return MaterialContainerTransform().apply {
     addTarget(android.R.id.content)
     duration = params.duration
     pathMotion = params.pathMotion.getPathMotion()

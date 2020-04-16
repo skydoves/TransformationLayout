@@ -38,6 +38,6 @@ fun Activity.onTransformationEndContainer(
   window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
   ViewCompat.setTransitionName(findViewById<View>(android.R.id.content), params.transitionName)
   setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-  window.sharedElementEnterTransition = params.getMaterialContainerTransform(this)
-  window.sharedElementReturnTransition = params.getMaterialContainerTransform(this)
+  window.sharedElementEnterTransition = params.getMaterialContainerTransform()
+  window.sharedElementReturnTransition = params.getMaterialContainerTransform()
 }
