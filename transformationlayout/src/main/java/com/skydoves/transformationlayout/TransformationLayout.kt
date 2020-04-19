@@ -201,6 +201,14 @@ class TransformationLayout : FrameLayout, TransformationParams {
     return ActivityOptions.makeSceneTransitionAnimation(activity, this, transitionName).toBundle()
   }
 
+  /** get a bundle with parcelable transformation params. */
+  fun getBundle(keyName: String, transitionName: String? = this.transitionName): Bundle {
+    if (transitionName != null) {
+      setTransitionName(transitionName)
+    }
+    return Bundle().apply { putParcelable(keyName, getParams()) }
+  }
+
   /** gets parameters of the [TransformationLayout.Params]. */
   fun getParams(): Params {
     return Params(

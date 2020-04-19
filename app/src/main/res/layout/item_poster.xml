@@ -4,7 +4,9 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/item_poster_transformationLayout"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content">
+  android:layout_height="wrap_content"
+  app:transformation_duration="500"
+  app:transformation_pathMode="arc">
 
   <com.google.android.material.card.MaterialCardView
     android:id="@+id/item_container"

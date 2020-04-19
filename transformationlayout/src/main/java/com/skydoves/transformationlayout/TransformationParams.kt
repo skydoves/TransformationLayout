@@ -57,3 +57,17 @@ internal fun TransformationParams.getMaterialContainerTransform(): MaterialConta
     fitMode = params.fitMode.value
   }
 }
+
+internal fun TransformationParams.getMaterialFragmentTransform(): MaterialContainerTransform {
+  val params = this
+  return MaterialContainerTransform().apply {
+    duration = params.duration
+    pathMotion = params.pathMotion.getPathMotion()
+    drawingViewId = params.zOrder
+    containerColor = params.containerColor
+    scrimColor = params.scrimColor
+    transitionDirection = params.direction.value
+    fadeMode = params.fadeMode.value
+    fitMode = params.fitMode.value
+  }
+}
