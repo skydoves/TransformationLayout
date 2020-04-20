@@ -39,7 +39,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.0.3"
+    implementation "com.github.skydoves:transformationlayout:1.0.4"
 }
 ```
 

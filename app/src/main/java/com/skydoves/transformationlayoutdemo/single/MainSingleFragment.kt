@@ -49,20 +49,21 @@ class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    // [Step1]: apply onTransformationStartContainer.
     onTransformationStartContainer()
   }
 
   /** This function will be called from the [PosterSingleAdapter.PosterDelegate]'s onBindViewHolder. */
   override fun onItemClick(poster: Poster, itemView: TransformationLayout) {
     val fragment = MainSingleDetailFragment()
-    // [Step1]: getBundle from the TransformationLayout.
+    // [Step2]: getBundle from the TransformationLayout.
     val bundle = itemView.getBundle(MainSingleDetailFragment.paramsKey)
     bundle.putParcelable(MainSingleDetailFragment.posterKey, poster)
     fragment.arguments = bundle
 
     requireFragmentManager()
       .beginTransaction()
-      // [Step2]: addTransformation using the TransformationLayout.
+      // [Step3]: addTransformation using the TransformationLayout.
       .addTransformation(itemView)
       .replace(R.id.main_container, fragment, MainSingleDetailFragment.TAG)
       .addToBackStack(MainSingleDetailFragment.TAG)
