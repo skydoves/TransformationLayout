@@ -19,7 +19,6 @@ package com.skydoves.transformationlayoutdemo.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
@@ -49,7 +48,11 @@ constructor(
         .into(item_poster_post)
       item_poster_title.text = item.name
       item_poster_running_time.text = item.playtime
-      ViewCompat.setTransitionName(item_poster_transformationLayout, item.name)
+
+      // sets a transition name to the transformation layout.
+      // this code must not be in listener.
+      item_poster_transformationLayout.transitionName = item.name
+
       setOnClickListener {
         delegate.onItemClick(item, item_poster_transformationLayout)
       }
@@ -67,6 +70,6 @@ constructor(
   class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
   interface PosterDelegate {
-    fun onItemClick(poster: Poster, view: TransformationLayout)
+    fun onItemClick(poster: Poster, itemView: TransformationLayout)
   }
 }

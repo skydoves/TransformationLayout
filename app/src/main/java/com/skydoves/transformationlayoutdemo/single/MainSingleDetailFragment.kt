@@ -20,7 +20,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
@@ -45,6 +44,7 @@ class MainSingleDetailFragment : Fragment() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    // [Step1]: apply onTransformationEndContainer using TransformationLayout.Params.
     val params = arguments?.getParcelable<TransformationLayout.Params>(paramsKey)
     onTransformationEndContainer(params)
   }
@@ -54,7 +54,10 @@ class MainSingleDetailFragment : Fragment() {
 
     val poster = arguments?.getParcelable<Poster>(posterKey)
     poster?.let {
-      ViewCompat.setTransitionName(detail_container, poster.name)
+
+      // [Step2]: sets a transition name to the target view.
+      detail_container.transitionName = poster.name
+
       Glide.with(this)
         .load(it.poster)
         .into(profile_detail_background)
@@ -64,20 +67,8 @@ class MainSingleDetailFragment : Fragment() {
   }
 
   companion object {
-
     const val TAG = "LibraryFragment"
-    private const val posterKey = "posterKey"
+    const val posterKey = "posterKey"
     const val paramsKey = "paramsKey"
-
-    fun newInstance(
-      poster: Poster,
-      transformationLayout: TransformationLayout
-    ): MainSingleDetailFragment {
-      val fragment = MainSingleDetailFragment()
-      val bundle = transformationLayout.getBundle(paramsKey)
-      bundle.putParcelable(posterKey, poster)
-      fragment.arguments = bundle
-      return fragment
-    }
   }
 }
