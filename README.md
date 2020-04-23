@@ -304,6 +304,8 @@ TransitionExtensionKt.onTransformationEndContainer(this, params);
 We can implement transformation between fragments for a single Activity application.<br>
 Here is an example of transforming a floating action button in Fragment A to Fragment B.
 
+<img src="https://user-images.githubusercontent.com/24237865/80108763-a1e6fa80-85b7-11ea-9350-f9d8ebc46310.gif" align="right" width="32%"/>
+
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
     android:id="@+id/transformationLayout"
@@ -336,7 +338,7 @@ TransitionExtensionKt.onTransformationStartContainer(this);
 ```
 
 #### getBundle and addTransformation
-We should get a bundle from `TransformationLayout` and put it into the argument.<br>
+We should get a bundle from the `TransformationLayout` and put it into the argument.<br>
 And in the fragment manager's transaction, we should add the `TransformationLayout` using `addTransformation` method.
 
 ```kotlin
@@ -355,7 +357,7 @@ requireFragmentManager()
 ```
 #### Transition name in Fragment A
 We must set a specific transition name to the `TransformationLayout`.<br>
-If you want to transform a recyclerView's item, set transiton name in `onViewCreated`.
+If you want to transform a recyclerView's item, set transiton name in `onBindViewHolder`.
 ```kotlin
 transformationLayout.transitionName = "myTransitionName"
 ```
