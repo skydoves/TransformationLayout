@@ -300,6 +300,98 @@ TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitio
 TransitionExtensionKt.onTransformationEndContainer(this, params);
 ```
 
+### Transform into a Fragment
+We can implement transformation between fragments for a single Activity application.<br>
+Here is an example of transforming a floating action button in Fragment A to Fragment B.
+
+```gradle
+<com.skydoves.transformationlayout.TransformationLayout
+    android:id="@+id/transformationLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:transformation_duration="550">
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/colorPrimary"
+      android:src="@drawable/ic_write"/>
+</com.skydoves.transformationlayout.TransformationLayout>
+```
+
+#### onTransformationStartContainer
+We should call `onTransformationStartContainer()` in the Fragment A that has the floating action button.
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+  super.onCreate(savedInstanceState)
+  onTransformationStartContainer()
+}
+```
+
+Here is the Java way.
+```java
+TransitionExtensionKt.onTransformationStartContainer(this);
+```
+
+#### getBundle and addTransformation
+We should get a bundle from `TransformationLayout` and put it into the argument.<br>
+And in the fragment manager's transaction, we should add the `TransformationLayout` using `addTransformation` method.
+
+```kotlin
+val fragment = MainSingleDetailFragment()
+val bundle = transformationLayout.getBundle("TransformationParams")
+bundle.putParcelable(MainSingleDetailFragment.posterKey, poster)
+fragment.arguments = bundle
+
+requireFragmentManager()
+  .beginTransaction()
+  .addTransformation(transformationLayout)
+  .replace(R.id.main_container, fragment, MainSingleDetailFragment.TAG)
+  .addToBackStack(MainSingleDetailFragment.TAG)
+  .commit()
+}
+```
+#### Transition name in Fragment A
+We must set a specific transition name to the `TransformationLayout`.<br>
+If you want to transform a recyclerView's item, set transiton name in `onViewCreated`.
+```kotlin
+transformationLayout.transitionName = "myTransitionName"
+```
+Here is the Java way.
+```java
+transformationLayout.setTransitionName("myTransitionName");
+```
+#### onTransformationEndContainer in Fragment B
+We should get a `TransformationLayout.Params` from the arguments, and call `onTransformationEndContainer` method.<br>
+It must be called in `onCreate` method.
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+  super.onCreate(savedInstanceState)
+
+ TransformationLayout.Params.
+    val params = arguments?.getParcelable<TransformationLayout.Params>("TransformationParams")
+    onTransformationEndContainer(params)
+}
+```
+Here is the Java way.
+```java
+TransformationLayout.Params params = getArguments().getParcelable("TransformationParams");
+TransitionExtensionKt.onTransformationEndContainer(this, params);
+```
+#### Transition name in Fragment B
+And finally set the specific transition name (same as the transformationLayot in Fragment A) <br>
+to the target view in Fragment B in `onViewCreated`.
+```kotlin
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+  super.onViewCreated(view, savedInstanceState)
+   
+  detail_container.transitionName = "myTransitionName"
+}
+```
+
+
 ## TransformationLayout Attributes
 Attributes | Type | Default | Description
 --- | --- | --- | ---
