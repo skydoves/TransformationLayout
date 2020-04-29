@@ -406,9 +406,15 @@ direction | Direction.AUTO, Direction.ENTER, Direction.RETURN | Direction.AUTO |
 fadeMode | FadeMode.IN, FadeMode.OUT, FadeMode.CROSS, FadeMode.THROUGH | FadeMode.IN | Set the FadeMode to be used to swap the content of the start View with that of the end View.
 fitMode | FitMode.AUTO, FitMode.WIDTH, FitMode.HEIGHT | FitMode.AUTO | Set the fitMode to be used when scaling the incoming content of the end View.
 
+## Additional 🎈
+You can reference the usage of the TransformationLayout in another repository [MarvelHeroes](https://github.com/skydoves/MarvelHeroes). <br>
+A demo application based on modern Android application tech-stacks and MVVM architecture.
+
+![screenshot](https://user-images.githubusercontent.com/24237865/80602029-9426ee80-8a69-11ea-866d-4e31b6526ab2.png)
 
 ## Find this library useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/transformationlayout/stargazers)__ for this repository. :star:
+Support it by joining __[stargazers](https://github.com/skydoves/transformationlayout/stargazers)__ for this repository. :star: <br>
+And __[follow](https://github.com/skydoves)__ me for my next creations! 🤩
 
 # License
 ```xml
