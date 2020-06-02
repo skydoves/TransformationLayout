@@ -57,8 +57,12 @@ object TransformationCompat {
     intent: Intent,
     block: (Intent, Bundle) -> Unit
   ) {
-    val bundle = withView(this, activityTransitionName)
-    intent.putExtra(activityTransitionName, getParcelableParams())
-    block(intent, bundle)
+    val now = System.currentTimeMillis()
+    if (now - throttledTime > duration) {
+      throttledTime = now
+      val bundle = withView(this, activityTransitionName)
+      intent.putExtra(activityTransitionName, getParcelableParams())
+      block(intent, bundle)
+    }
   }
 }

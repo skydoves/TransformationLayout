@@ -13,9 +13,15 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-    <activity android:name=".DetailActivity" />
-    <activity android:name=".single.MainSingleActivity" />
-    <activity android:name=".MainActivity">
+    <activity
+      android:name=".DetailActivity"
+      android:launchMode="singleTop" />
+    <activity
+      android:name=".single.MainSingleActivity"
+      android:launchMode="singleTop" />
+    <activity
+      android:name=".MainActivity"
+      android:launchMode="singleTop">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

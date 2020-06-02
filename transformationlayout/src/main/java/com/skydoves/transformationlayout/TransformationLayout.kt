@@ -28,6 +28,7 @@ import android.transition.PathMotion
 import android.transition.Transition
 import android.transition.TransitionManager
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -59,10 +60,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
   override var zOrder: Int = DefaultParamValues.zOrder
 
   /** The container color to be used as the background of the morphing container. */
-  @ColorInt override var containerColor: Int = DefaultParamValues.containerColor
+  @ColorInt
+  override var containerColor: Int = DefaultParamValues.containerColor
 
   /** The color to be drawn under the morphing container but within the bounds of the zOrder. */
-  @ColorInt override var scrimColor: Int = DefaultParamValues.scrimColor
+  @ColorInt
+  override var scrimColor: Int = DefaultParamValues.scrimColor
 
   /** The [Direction] to be used by this transform. */
   override var direction: Direction = DefaultParamValues.direction
@@ -73,7 +76,10 @@ class TransformationLayout : FrameLayout, TransformationParams {
   /** The [FitMode] to be used when scaling the incoming content of the end View. */
   override var fitMode: FitMode = DefaultParamValues.fitMode
 
-  @JvmField var onTransformFinishListener: OnTransformFinishListener? = null
+  @JvmField
+  var onTransformFinishListener: OnTransformFinishListener? = null
+
+  var throttledTime = System.currentTimeMillis()
 
   constructor(context: Context) : super(context)
 
@@ -237,7 +243,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
           "If you already set targetView, check you use duplicated resource id to the TransformLayout."
       }
       if (!isTransformed && !isTransforming) {
-        beginDelayingAndTransform(container, this, targetView)
+        val now = System.currentTimeMillis()
+        if (now - throttledTime >= duration) {
+          Log.e("Test", "throttledTime: $throttledTime now: $now")
+          throttledTime = now
+          beginDelayingAndTransform(container, this, targetView)
+        }
       }
     }
   }
@@ -371,6 +382,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
     /** Indicates that this transition should cross fade the outgoing and incoming content. */
     CROSS(MaterialContainerTransform.FADE_MODE_CROSS),
+
     /**
      * Indicates that this transition should sequentially fade out the outgoing content and fade in
      * the incoming content.
