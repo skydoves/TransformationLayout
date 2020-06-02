@@ -23,14 +23,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayoutdemo.DetailActivity
 import com.skydoves.transformationlayoutdemo.R
-import kotlinx.android.synthetic.main.item_poster_line.view.item_poster_line_transformationLayout
-import kotlinx.android.synthetic.main.item_poster_line.view.item_poster_post
-import kotlinx.android.synthetic.main.item_poster_line.view.item_poster_running_time
-import kotlinx.android.synthetic.main.item_poster_line.view.item_poster_title
+import kotlinx.android.synthetic.main.item_poster_line.view.*
 
 class PosterLineAdapter : RecyclerView.Adapter<PosterLineAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
+  private var previousTime = System.currentTimeMillis()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -46,7 +44,11 @@ class PosterLineAdapter : RecyclerView.Adapter<PosterLineAdapter.PosterViewHolde
       item_poster_title.text = item.name
       item_poster_running_time.text = item.playtime
       setOnClickListener {
-        DetailActivity.startActivity(context, item_poster_line_transformationLayout, item)
+        val now = System.currentTimeMillis()
+        if (now - previousTime >= item_poster_line_transformationLayout.duration) {
+          DetailActivity.startActivity(context, item_poster_line_transformationLayout, item)
+          previousTime = now
+        }
       }
     }
   }

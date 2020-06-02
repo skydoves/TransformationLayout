@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_title
 class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
+  private var previousTime = System.currentTimeMillis()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -44,7 +45,11 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
         .into(item_poster_post)
       item_poster_title.text = item.name
       setOnClickListener {
-        DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
+        val now = System.currentTimeMillis()
+        if (previousTime - now > item_poster_menu_transformationLayout.duration) {
+          DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
+          previousTime = now
+        }
       }
     }
   }

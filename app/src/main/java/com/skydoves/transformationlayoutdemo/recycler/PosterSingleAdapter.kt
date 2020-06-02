@@ -23,10 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayoutdemo.R
-import kotlinx.android.synthetic.main.item_poster.view.item_poster_post
-import kotlinx.android.synthetic.main.item_poster.view.item_poster_running_time
-import kotlinx.android.synthetic.main.item_poster.view.item_poster_title
-import kotlinx.android.synthetic.main.item_poster.view.item_poster_transformationLayout
+import kotlinx.android.synthetic.main.item_poster.view.*
 
 class PosterSingleAdapter
 constructor(
@@ -34,6 +31,7 @@ constructor(
 ) : RecyclerView.Adapter<PosterSingleAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
+  private var previousTime = System.currentTimeMillis()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -54,7 +52,11 @@ constructor(
       item_poster_transformationLayout.transitionName = item.name
 
       setOnClickListener {
-        delegate.onItemClick(item, item_poster_transformationLayout)
+        val now = System.currentTimeMillis()
+        if (previousTime - now >= item_poster_transformationLayout.duration) {
+          delegate.onItemClick(item, item_poster_transformationLayout)
+          previousTime = now
+        }
       }
     }
   }
