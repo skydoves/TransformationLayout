@@ -372,9 +372,8 @@ It must be called in `onCreate` method.
 override fun onCreate(savedInstanceState: Bundle?) {
   super.onCreate(savedInstanceState)
 
- TransformationLayout.Params.
-    val params = arguments?.getParcelable<TransformationLayout.Params>("TransformationParams")
-    onTransformationEndContainer(params)
+  val params = arguments?.getParcelable<TransformationLayout.Params>("TransformationParams")
+  onTransformationEndContainer(params)
 }
 ```
 Here is the Java way.
