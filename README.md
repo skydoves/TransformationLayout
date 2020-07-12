@@ -355,6 +355,19 @@ requireFragmentManager()
   .commit()
 }
 ```
+Here is the Java way
+```java
+MainSingleDetailFragment fragment = new MainSingleDetailFragment();
+Bundle bundle = transformationLayout.getBundle("TransformationParams", "transitionName");
+fragment.setArguments(bundle);
+
+FragmentTransaction fragmentTransaction = requireFragmentManager().beginTransaction();
+TransitionExtensionKt.addTransformation(
+    fragmentTransaction, transformationLayout, "transitionName");
+fragmentTransaction.replace(R.id.main_container, fragment, MainSingleDetailFragment.TAG)
+    .addToBackStack(MainSingleDetailFragment.TAG)
+    .commit();
+```
 #### Transition name in Fragment A
 We must set a specific transition name to the `TransformationLayout`.<br>
 If you want to transform a recyclerView's item, set transiton name in `onBindViewHolder`.
