@@ -296,7 +296,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Here is the __Java__ way.
 ```java
-TransformationLayout.Params params = getIntent().getParcelableExtra("myTransitionName");
+TransformationLayout.Params params = getIntent().getParcelableExtra("TransformationParams");
 TransitionExtensionKt.onTransformationEndContainer(this, params);
 ```
 
