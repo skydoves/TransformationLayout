@@ -14,5 +14,5 @@ ext.versions = [
 
     // for demo
     constraintVersion   : '1.1.3',
-    glideVersion        : '4.10.0'
+    glideVersion        : '4.11.0'
 ]

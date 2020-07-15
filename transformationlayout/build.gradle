@@ -14,9 +14,6 @@ android {
         versionName versions.versionName
         vectorDrawables.useSupportLibrary = true
     }
-    androidExtensions {
-        experimental = true
-    }
 }
 
 dependencies {
@@ -27,7 +24,6 @@ dependencies {
 dokka {
     outputFormat = 'html'
     outputDirectory = "$buildDir/javadoc"
-
     configuration {
         moduleName = 'transformlayout'
     }
@@ -36,11 +32,6 @@ dokka {
 tasks.withType(Javadoc) {
     excludes = ['**/*.kt']
     options.addBooleanOption('Xdoclint:none', true)
-}
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions.freeCompilerArgs += ["-XXLanguage:+InlineClasses"]
-    kotlinOptions.freeCompilerArgs += ["-Xuse-experimental=kotlin.Experimental"]
 }
 
 apply from: '../spotless.gradle'
