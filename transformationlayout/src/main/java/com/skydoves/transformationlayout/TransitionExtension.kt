@@ -22,8 +22,8 @@ import android.view.Window
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.transition.Hold
-import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback
+import com.google.android.material.transition.platform.Hold
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 /** sets an exit shared element callback to activity for implementing shared element transition. */
 fun Activity.onTransformationStartContainer() {

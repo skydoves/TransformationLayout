@@ -33,8 +33,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
-import com.google.android.material.transition.MaterialArcMotion
-import com.google.android.material.transition.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialArcMotion
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import kotlinx.android.parcel.Parcelize
 
 class TransformationLayout : FrameLayout, TransformationParams {
@@ -311,6 +311,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
     return MaterialContainerTransform().apply {
       startView = mStartView
       endView = mEndView
+      addTarget(mEndView)
       duration = this@TransformationLayout.duration
       pathMotion = this@TransformationLayout.pathMotion.getPathMotion()
       drawingViewId = this@TransformationLayout.zOrder

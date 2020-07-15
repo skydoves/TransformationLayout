@@ -53,7 +53,7 @@ constructor(
 
       setOnClickListener {
         val now = System.currentTimeMillis()
-        if (previousTime - now >= item_poster_transformationLayout.duration) {
+        if (now - previousTime >= item_poster_transformationLayout.duration) {
           delegate.onItemClick(item, item_poster_transformationLayout)
           previousTime = now
         }

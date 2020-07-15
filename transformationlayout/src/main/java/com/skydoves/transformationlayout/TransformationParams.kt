@@ -17,7 +17,7 @@
 package com.skydoves.transformationlayout
 
 import android.graphics.Color
-import com.google.android.material.transition.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import java.io.Serializable
 
 /** Interface definition about the [TransformationLayout]'s parameters.  */

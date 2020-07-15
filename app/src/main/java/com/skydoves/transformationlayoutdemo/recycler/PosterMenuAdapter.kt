@@ -46,7 +46,7 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
       item_poster_title.text = item.name
       setOnClickListener {
         val now = System.currentTimeMillis()
-        if (previousTime - now > item_poster_menu_transformationLayout.duration) {
+        if (now - previousTime >= item_poster_menu_transformationLayout.duration) {
           DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
           previousTime = now
         }
