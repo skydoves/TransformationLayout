@@ -39,7 +39,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.0.4"
+    implementation "com.github.skydoves:transformationlayout:1.0.5"
 }
 ```
 
@@ -413,10 +413,15 @@ targetView | resource id | none | Bind a targetView that will be transformed.
 duration | Long | 350L | Duration of the transformation.
 pathMotion | Motion.ARC, Motion.LINEAR | default layout | Indicates that this transition should be drawn as the which path.
 containerColor | Color | Color.TRANSPARENT | Set the container color to be used as the background of the morphing container.
+allContainerColor | Color | Color.TRANSPARENT | The all container colors (start and end) to be used as the background of the morphing container.
 scrimColor | Color | Color.TRANSPARENT | Set the color to be drawn under the morphing container.
 direction | Direction.AUTO, Direction.ENTER, Direction.RETURN | Direction.AUTO | Set the direction to be used by this transform.
 fadeMode | FadeMode.IN, FadeMode.OUT, FadeMode.CROSS, FadeMode.THROUGH | FadeMode.IN | Set the FadeMode to be used to swap the content of the start View with that of the end View.
 fitMode | FitMode.AUTO, FitMode.WIDTH, FitMode.HEIGHT | FitMode.AUTO | Set the fitMode to be used when scaling the incoming content of the end View.
+startElevation | Float | ELEVATION_NOT_SET | The elevation that will be used to render a shadow around the container at the start of the transition.
+endElevation | Float | ELEVATION_NOT_SET | The elevation that will be used to render a shadow around the container at the end of the transition.
+elevationShadowEnabled | Boolean | true if (version > Pie) | Whether shadows should be drawn around the container to approximate native elevation shadows on the start and end views.
+holdAtEndEnabled | Boolean | false | Whether to hold the last frame at the end of the animation.
 
 ## Additional 🎈
 You can reference the usage of the TransformationLayout in another repository [MarvelHeroes](https://github.com/skydoves/MarvelHeroes). <br>
