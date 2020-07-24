@@ -6,32 +6,31 @@ apply from: '../dependencies.gradle'
 apply from: '../publish.gradle'
 
 android {
-    compileSdkVersion versions.compileSdk
-    defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.compileSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
-        vectorDrawables.useSupportLibrary = true
-    }
+  compileSdkVersion versions.compileSdk
+  defaultConfig {
+    minSdkVersion versions.minSdk
+    targetSdkVersion versions.compileSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+  }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "com.google.android.material:material:$versions.googleMaterial"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+  implementation "com.google.android.material:material:$versions.googleMaterial"
 }
 
 dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
-    configuration {
-        moduleName = 'transformlayout'
-    }
+  outputFormat = 'html'
+  outputDirectory = "$buildDir/javadoc"
+  configuration {
+    moduleName = 'transformlayout'
+  }
 }
 
 tasks.withType(Javadoc) {
-    excludes = ['**/*.kt']
-    options.addBooleanOption('Xdoclint:none', true)
+  excludes = ['**/*.kt']
+  options.addBooleanOption('Xdoclint:none', true)
 }
 
 apply from: '../spotless.gradle'
