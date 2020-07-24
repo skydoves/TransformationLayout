@@ -63,6 +63,9 @@ class TransformationLayout : FrameLayout, TransformationParams {
   @ColorInt
   override var containerColor: Int = DefaultParamValues.containerColor
 
+  /** The all container colors (start and end) to be used as the background of the morphing container. */
+  override var allContainerColors: Int = DefaultParamValues.allContainerColors
+
   /** The color to be drawn under the morphing container but within the bounds of the zOrder. */
   @ColorInt
   override var scrimColor: Int = DefaultParamValues.scrimColor
@@ -75,6 +78,18 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
   /** The [FitMode] to be used when scaling the incoming content of the end View. */
   override var fitMode: FitMode = DefaultParamValues.fitMode
+
+  /** The elevation that will be used to render a shadow around the container at the start of the transition. */
+  override var startElevation: Float = DefaultParamValues.startElevation
+
+  /** The elevation that will be used to render a shadow around the container at the end of the transition. */
+  override var endElevation: Float = DefaultParamValues.endElevation
+
+  /** Whether shadows should be drawn around the container to approximate native elevation shadows on the start and end views. */
+  override var elevationShadowEnabled: Boolean = DefaultParamValues.elevationShadowEnabled
+
+  /** Whether to hold the last frame at the end of the animation. */
+  override var holdAtEndEnabled: Boolean = DefaultParamValues.holdAtEndEnabled
 
   @JvmField
   var onTransformFinishListener: OnTransformFinishListener? = null
@@ -222,10 +237,15 @@ class TransformationLayout : FrameLayout, TransformationParams {
       pathMotion = this@TransformationLayout.pathMotion,
       zOrder = this@TransformationLayout.zOrder,
       containerColor = this@TransformationLayout.containerColor,
+      allContainerColors = this@TransformationLayout.allContainerColors,
       scrimColor = this@TransformationLayout.scrimColor,
       direction = this@TransformationLayout.direction,
       fadeMode = this@TransformationLayout.fadeMode,
       fitMode = this@TransformationLayout.fitMode,
+      startElevation = this@TransformationLayout.startElevation,
+      endElevation = this@TransformationLayout.endElevation,
+      elevationShadowEnabled = this@TransformationLayout.elevationShadowEnabled,
+      holdAtEndEnabled = this@TransformationLayout.holdAtEndEnabled,
       transitionName = transitionName
     )
   }
@@ -316,10 +336,15 @@ class TransformationLayout : FrameLayout, TransformationParams {
       pathMotion = this@TransformationLayout.pathMotion.getPathMotion()
       drawingViewId = this@TransformationLayout.zOrder
       containerColor = this@TransformationLayout.containerColor
+      setAllContainerColors(this@TransformationLayout.allContainerColors)
       scrimColor = this@TransformationLayout.scrimColor
       transitionDirection = this@TransformationLayout.direction.value
       fadeMode = this@TransformationLayout.fadeMode.value
       fitMode = this@TransformationLayout.fitMode.value
+      startElevation = this@TransformationLayout.startElevation
+      endElevation = this@TransformationLayout.endElevation
+      isElevationShadowEnabled = this@TransformationLayout.elevationShadowEnabled
+      isHoldAtEndEnabled = this@TransformationLayout.holdAtEndEnabled
       addListener(object : Transition.TransitionListener {
         override fun onTransitionPause(p0: Transition?) = Unit
         override fun onTransitionStart(p0: Transition?) = Unit
@@ -344,10 +369,15 @@ class TransformationLayout : FrameLayout, TransformationParams {
     override var pathMotion: Motion,
     override var zOrder: Int,
     override var containerColor: Int,
+    override var allContainerColors: Int,
     override var scrimColor: Int,
     override var direction: Direction,
     override var fadeMode: FadeMode,
     override var fitMode: FitMode,
+    override var startElevation: Float,
+    override var endElevation: Float,
+    override var elevationShadowEnabled: Boolean,
+    override var holdAtEndEnabled: Boolean,
     var transitionName: String
   ) : Parcelable, TransformationParams
 
