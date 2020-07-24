@@ -63,6 +63,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   @ColorInt
   override var containerColor: Int = DefaultParamValues.containerColor
 
+  @ColorInt
   /** The all container colors (start and end) to be used as the background of the morphing container. */
   override var allContainerColors: Int = DefaultParamValues.allContainerColors
 
@@ -151,6 +152,9 @@ class TransformationLayout : FrameLayout, TransformationParams {
     this.zOrder = a.getInteger(R.styleable.TransformationLayout_transformation_zOrder, zOrder)
     this.containerColor =
       a.getColor(R.styleable.TransformationLayout_transformation_containerColor, containerColor)
+    this.allContainerColors =
+      a.getColor(R.styleable.TransformationLayout_transformation_allContainerColor,
+        allContainerColors)
     this.scrimColor =
       a.getColor(R.styleable.TransformationLayout_transformation_scrimColor, scrimColor)
     this.direction =
@@ -172,6 +176,16 @@ class TransformationLayout : FrameLayout, TransformationParams {
         1 -> FitMode.WIDTH
         else -> FitMode.HEIGHT
       }
+    this.startElevation =
+      a.getFloat(R.styleable.TransformationLayout_transformation_startElevation, startElevation)
+    this.endElevation =
+      a.getFloat(R.styleable.TransformationLayout_transformation_endElevation, endElevation)
+    this.elevationShadowEnabled =
+      a.getBoolean(R.styleable.TransformationLayout_transformation_elevationShadowEnabled,
+        elevationShadowEnabled)
+    this.holdAtEndEnabled =
+      a.getBoolean(R.styleable.TransformationLayout_transformation_holdAtEndEnabled,
+        holdAtEndEnabled)
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
