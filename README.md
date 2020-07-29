@@ -17,7 +17,7 @@
 ## Download
 Go to the [Releases](https://github.com/skydoves/TransformationLayout/releases) to download the demo APK.
 
-## Screeshots
+## Screenshots
 <p align="center">
 <img src="/preview/preview0.gif" width="32%"/>
 <img src="/preview/preview1.gif" width="32%"/>
