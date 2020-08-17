@@ -28,7 +28,6 @@ import android.transition.PathMotion
 import android.transition.Transition
 import android.transition.TransitionManager
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -279,7 +278,6 @@ class TransformationLayout : FrameLayout, TransformationParams {
       if (!isTransformed && !isTransforming) {
         val now = System.currentTimeMillis()
         if (now - throttledTime >= duration) {
-          Log.e("Test", "throttledTime: $throttledTime now: $now")
           throttledTime = now
           beginDelayingAndTransform(container, this, targetView)
         }
