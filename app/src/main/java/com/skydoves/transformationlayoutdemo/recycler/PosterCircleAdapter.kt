@@ -47,7 +47,7 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
         val now = System.currentTimeMillis()
         if (now - previousTime >= item_poster_circle_transformationLayout.duration)
           DetailActivity.startActivity(context, item_poster_circle_transformationLayout, item)
-          previousTime = now
+        previousTime = now
       }
     }
   }

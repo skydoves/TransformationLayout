@@ -104,7 +104,8 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
   constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(
     context,
-    attributeSet, defStyle
+    attributeSet,
+    defStyle
   ) {
     getAttrs(attributeSet, defStyle)
   }
@@ -124,7 +125,8 @@ class TransformationLayout : FrameLayout, TransformationParams {
         attributeSet,
         R.styleable.TransformationLayout,
         defStyleAttr,
-        0)
+        0
+      )
     try {
       setTypeArray(typedArray)
     } finally {
@@ -152,8 +154,10 @@ class TransformationLayout : FrameLayout, TransformationParams {
     this.containerColor =
       a.getColor(R.styleable.TransformationLayout_transformation_containerColor, containerColor)
     this.allContainerColors =
-      a.getColor(R.styleable.TransformationLayout_transformation_allContainerColor,
-        allContainerColors)
+      a.getColor(
+        R.styleable.TransformationLayout_transformation_allContainerColor,
+        allContainerColors
+      )
     this.scrimColor =
       a.getColor(R.styleable.TransformationLayout_transformation_scrimColor, scrimColor)
     this.direction =
@@ -180,11 +184,15 @@ class TransformationLayout : FrameLayout, TransformationParams {
     this.endElevation =
       a.getFloat(R.styleable.TransformationLayout_transformation_endElevation, endElevation)
     this.elevationShadowEnabled =
-      a.getBoolean(R.styleable.TransformationLayout_transformation_elevationShadowEnabled,
-        elevationShadowEnabled)
+      a.getBoolean(
+        R.styleable.TransformationLayout_transformation_elevationShadowEnabled,
+        elevationShadowEnabled
+      )
     this.holdAtEndEnabled =
-      a.getBoolean(R.styleable.TransformationLayout_transformation_holdAtEndEnabled,
-        holdAtEndEnabled)
+      a.getBoolean(
+        R.styleable.TransformationLayout_transformation_holdAtEndEnabled,
+        holdAtEndEnabled
+      )
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
@@ -283,9 +291,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
   /** starts transforming the [TransformationLayout] into targetView with delaying. */
   fun startTransformWithDelay(container: ViewGroup, delay: Long) {
-    postDelayed({
-      startTransform(container)
-    }, delay)
+    postDelayed(
+      {
+        startTransform(container)
+      },
+      delay
+    )
   }
 
   /** starts transforming the [TransformationLayout] into targetView with stopping parent. */
@@ -313,9 +324,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
   /** transforming the targetView into [TransformationLayout] with delaying. */
   fun finishTransformWithDelay(container: ViewGroup, delay: Long) {
-    postDelayed({
-      finishTransform(container)
-    }, delay)
+    postDelayed(
+      {
+        finishTransform(container)
+      },
+      delay
+    )
   }
 
   /** transforming the targetView into [TransformationLayout] with stopping parent. */
@@ -353,16 +367,18 @@ class TransformationLayout : FrameLayout, TransformationParams {
       endElevation = this@TransformationLayout.endElevation
       isElevationShadowEnabled = this@TransformationLayout.elevationShadowEnabled
       isHoldAtEndEnabled = this@TransformationLayout.holdAtEndEnabled
-      addListener(object : Transition.TransitionListener {
-        override fun onTransitionPause(p0: Transition?) = Unit
-        override fun onTransitionStart(p0: Transition?) = Unit
-        override fun onTransitionResume(p0: Transition?) = Unit
-        override fun onTransitionCancel(p0: Transition?) = onFinishTransformation()
-        override fun onTransitionEnd(p0: Transition?) {
-          onFinishTransformation()
-          onTransformFinishListener?.run { onFinish(isTransformed) }
+      addListener(
+        object : Transition.TransitionListener {
+          override fun onTransitionPause(p0: Transition?) = Unit
+          override fun onTransitionStart(p0: Transition?) = Unit
+          override fun onTransitionResume(p0: Transition?) = Unit
+          override fun onTransitionCancel(p0: Transition?) = onFinishTransformation()
+          override fun onTransitionEnd(p0: Transition?) {
+            onFinishTransformation()
+            onTransformFinishListener?.run { onFinish(isTransformed) }
+          }
         }
-      })
+      )
     }
   }
 

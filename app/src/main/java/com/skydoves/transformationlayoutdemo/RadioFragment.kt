@@ -42,8 +42,11 @@ class RadioFragment : Fragment() {
     recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(MockUtil.getMockPosters()) }
 
     fab.setOnClickListener {
-      DetailActivity.startActivity(requireContext(), transformationLayout_fab,
-        MockUtil.getMockPoster())
+      DetailActivity.startActivity(
+        requireContext(),
+        transformationLayout_fab,
+        MockUtil.getMockPoster()
+      )
     }
   }
 }

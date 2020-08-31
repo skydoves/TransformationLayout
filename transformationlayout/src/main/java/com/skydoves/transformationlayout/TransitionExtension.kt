@@ -37,7 +37,8 @@ fun Activity.onTransformationEndContainer(
   params: TransformationLayout.Params?
 ) {
   requireNotNull(
-    params) { "TransformationLayout.Params must not be a null. check your intent key value is correct." }
+    params
+  ) { "TransformationLayout.Params must not be a null. check your intent key value is correct." }
   window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
   ViewCompat.setTransitionName(findViewById<View>(android.R.id.content), params.transitionName)
   setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
@@ -55,7 +56,8 @@ fun Fragment.onTransformationEndContainer(
   params: TransformationLayout.Params?
 ) {
   requireNotNull(
-    params) { "TransformationLayout.Params must not be a null. check your intent key value is correct." }
+    params
+  ) { "TransformationLayout.Params must not be a null. check your intent key value is correct." }
   sharedElementEnterTransition = params.getMaterialFragmentTransform()
 }
 
