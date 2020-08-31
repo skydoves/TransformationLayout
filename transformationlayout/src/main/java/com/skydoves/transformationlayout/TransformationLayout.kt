@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@file:Suppress("unused")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
 package com.skydoves.transformationlayout
 
@@ -189,11 +189,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
 
   /** sets a callback method which invoked when the transforming is finished. */
   fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
-    this.onTransformFinishListener = object : OnTransformFinishListener {
-      override fun onFinish(isTransformed: Boolean) {
-        action(isTransformed)
-      }
-    }
+    this.onTransformFinishListener = OnTransformFinishListener { isTransformed -> action(isTransformed) }
   }
 
   /**
