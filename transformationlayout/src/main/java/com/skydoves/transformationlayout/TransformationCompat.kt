@@ -18,6 +18,7 @@ package com.skydoves.transformationlayout
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.core.app.ActivityCompat
 
 /** Helper for accessing features in starting activities with transformation animation. */
@@ -57,7 +58,7 @@ object TransformationCompat {
     intent: Intent,
     block: (Intent, Bundle) -> Unit
   ) {
-    val now = System.currentTimeMillis()
+    val now = SystemClock.elapsedRealtime()
     if (now - throttledTime > duration) {
       throttledTime = now
       val bundle = withView(this, activityTransitionName)

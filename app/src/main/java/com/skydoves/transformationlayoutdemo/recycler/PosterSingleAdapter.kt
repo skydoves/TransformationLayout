@@ -16,6 +16,7 @@
 
 package com.skydoves.transformationlayoutdemo.recycler
 
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,7 @@ constructor(
 ) : RecyclerView.Adapter<PosterSingleAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
-  private var previousTime = System.currentTimeMillis()
+  private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -52,7 +53,7 @@ constructor(
       item_poster_transformationLayout.transitionName = item.name
 
       setOnClickListener {
-        val now = System.currentTimeMillis()
+        val now = SystemClock.elapsedRealtime()
         if (now - previousTime >= item_poster_transformationLayout.duration) {
           delegate.onItemClick(item, item_poster_transformationLayout)
           previousTime = now

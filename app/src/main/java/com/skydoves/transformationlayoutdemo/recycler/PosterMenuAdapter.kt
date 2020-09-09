@@ -16,6 +16,7 @@
 
 package com.skydoves.transformationlayoutdemo.recycler
 
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,7 @@ import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_title
 class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
-  private var previousTime = System.currentTimeMillis()
+  private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -45,7 +46,7 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
         .into(item_poster_post)
       item_poster_title.text = item.name
       setOnClickListener {
-        val now = System.currentTimeMillis()
+        val now = SystemClock.elapsedRealtime()
         if (now - previousTime >= item_poster_menu_transformationLayout.duration) {
           DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
           previousTime = now

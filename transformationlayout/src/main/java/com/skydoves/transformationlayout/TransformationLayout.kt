@@ -24,6 +24,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.os.Bundle
 import android.os.Parcelable
+import android.os.SystemClock
 import android.transition.PathMotion
 import android.transition.Transition
 import android.transition.TransitionManager
@@ -94,7 +95,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   @JvmField
   var onTransformFinishListener: OnTransformFinishListener? = null
 
-  var throttledTime = System.currentTimeMillis()
+  var throttledTime = SystemClock.elapsedRealtime()
 
   constructor(context: Context) : super(context)
 
@@ -280,7 +281,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
           "If you already set targetView, check you use duplicated resource id to the TransformLayout."
       }
       if (!isTransformed && !isTransforming) {
-        val now = System.currentTimeMillis()
+        val now = SystemClock.elapsedRealtime()
         if (now - throttledTime >= duration) {
           throttledTime = now
           beginDelayingAndTransform(container, this, targetView)
