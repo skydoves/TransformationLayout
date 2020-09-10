@@ -197,6 +197,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
+  @JvmSynthetic
   fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
     this.onTransformFinishListener = OnTransformFinishListener { isTransformed -> action(isTransformed) }
   }
@@ -499,13 +500,11 @@ class TransformationLayout : FrameLayout, TransformationParams {
       transformationLayout.onTransformFinishListener = value
     }
 
+    @JvmSynthetic
     fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
-      transformationLayout.onTransformFinishListener = object : OnTransformFinishListener {
-        override fun onFinish(isTransformed: Boolean) {
-          action(isTransformed)
-        }
-      }
-      fun build() = transformationLayout
+      transformationLayout.onTransformFinishListener = OnTransformFinishListener { action(it) }
     }
+
+    fun build() = transformationLayout
   }
 }
