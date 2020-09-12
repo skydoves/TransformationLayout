@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
+@file:Suppress("unused")
+
 package com.skydoves.transformationlayout
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 
 /** Helper for accessing features in starting activities with transformation animation. */
 object TransformationCompat {
@@ -54,6 +59,40 @@ object TransformationCompat {
         ActivityCompat.startActivityForResult(activity, workedIntent, requestCode, bundle)
       }
     }
+  }
+
+  /** sets an exit shared element callback to activity for implementing shared element transition. */
+  @JvmStatic
+  fun onTransformationStartContainer(activity: Activity) {
+    activity.onTransformationStartContainer()
+  }
+
+  /** sets an enter shared element callback to activity for implementing shared element transition. */
+  @JvmStatic
+  fun onTransformationEndContainer(activity: Activity, params: TransformationLayout.Params?) {
+    activity.onTransformationEndContainer(params)
+  }
+
+  /** sets an exit shared element callback to fragment for implementing shared element transition. */
+  @JvmStatic
+  fun onTransformationStartContainer(fragment: Fragment) {
+    fragment.onTransformationStartContainer()
+  }
+
+  /** sets an enter shared element callback to fragment for implementing shared element transition. */
+  @JvmStatic
+  fun onTransformationEndContainer(fragment: Fragment, params: TransformationLayout.Params?) {
+    fragment.onTransformationEndContainer(params)
+  }
+
+  /** adds a shared element transformation to FragmentTransaction. */
+  @JvmStatic
+  fun addTransformation(
+    fragmentTransaction: FragmentTransaction,
+    transformationLayout: TransformationLayout,
+    transitionName: String? = null
+  ) {
+    fragmentTransaction.addTransformation(transformationLayout, transitionName)
   }
 
   private inline fun TransformationLayout.startActivityWithBundleOptions(
