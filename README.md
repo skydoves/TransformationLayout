@@ -190,7 +190,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ```
 Here is the Java way.
 ```java
-TransitionExtensionKt.onTransformationStartContainer(this);
+TransformationCompat.onTransformationStartContainer(this);
 ```
 
 #### TransformationAppCompatActivity
@@ -212,7 +212,7 @@ TransformationCompat.startActivity(transformationLayout, intent)
 Here is the Java way.
 ```java
 Intent intent = new Intent(context, DetailActivity.class);
-TransformationCompat.INSTANCE.startActivity(transformationLayout, intent);
+TransformationCompat.startActivity(transformationLayout, intent);
 ```
 
 ### Manually Transform into an Activity
@@ -248,7 +248,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ```
 Here is the Java way.
 ```java
-TransitionExtensionKt.onTransformationStartContainer(this);
+TransformationCompat.onTransformationStartContainer(this);
 ```
 
 #### startActivity
@@ -297,7 +297,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 Here is the __Java__ way.
 ```java
 TransformationLayout.Params params = getIntent().getParcelableExtra("TransformationParams");
-TransitionExtensionKt.onTransformationEndContainer(this, params);
+TransformationCompat.onTransformationEndContainer(this, params);
 ```
 
 ### Transform into a Fragment
@@ -334,7 +334,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Here is the Java way.
 ```java
-TransitionExtensionKt.onTransformationStartContainer(this);
+TransformationCompat.onTransformationStartContainer(this);
 ```
 
 #### getBundle and addTransformation
@@ -362,7 +362,7 @@ Bundle bundle = transformationLayout.getBundle("TransformationParams", "transiti
 fragment.setArguments(bundle);
 
 FragmentTransaction fragmentTransaction = requireFragmentManager().beginTransaction();
-TransitionExtensionKt.addTransformation(
+TransformationCompat.addTransformation(
     fragmentTransaction, transformationLayout, "transitionName");
 fragmentTransaction.replace(R.id.main_container, fragment, MainSingleDetailFragment.TAG)
     .addToBackStack(MainSingleDetailFragment.TAG)
@@ -392,7 +392,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 Here is the Java way.
 ```java
 TransformationLayout.Params params = getArguments().getParcelable("TransformationParams");
-TransitionExtensionKt.onTransformationEndContainer(this, params);
+TransformationCompat.onTransformationEndContainer(this, params);
 ```
 #### Transition name in Fragment B
 And finally set the specific transition name (same as the transformationLayot in Fragment A) <br>
