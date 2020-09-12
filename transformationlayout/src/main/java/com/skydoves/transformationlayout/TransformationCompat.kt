@@ -65,6 +65,7 @@ object TransformationCompat {
    * After starts a new activity by using [startActivity] or [startActivityForResult] in [TransformationCompat],
    * apply the [TransformationLayout.Params] on an Activity.
    */
+  @JvmStatic
   fun onTransformationEndContainerApplyParams(activity: Activity) {
     activity.onTransformationEndContainer(
       activity.intent.getParcelableExtra(activityTransitionName)
