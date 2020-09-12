@@ -61,6 +61,16 @@ object TransformationCompat {
     }
   }
 
+  /**
+   * After starts a new activity by using [startActivity] or [startActivityForResult] in [TransformationCompat],
+   * apply the [TransformationLayout.Params] on an Activity.
+   */
+  fun onTransformationEndContainerApplyParams(activity: Activity) {
+    activity.onTransformationEndContainer(
+      activity.intent.getParcelableExtra(activityTransitionName)
+    )
+  }
+
   /** sets an exit shared element callback to activity for implementing shared element transition. */
   @JvmStatic
   fun onTransformationStartContainer(activity: Activity) {
