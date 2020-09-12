@@ -28,6 +28,7 @@ object TransformationCompat {
   internal const val activityTransitionName: String = "com.skydoves.transformationlayout"
 
   /** Invalidate the activity's options menu, if able. */
+  @JvmStatic
   fun startActivity(
     transformationLayout: TransformationLayout,
     intent: Intent
@@ -41,6 +42,7 @@ object TransformationCompat {
    * Start new activity with options, if able, for which you would like a
    * result when it finished.
    */
+  @JvmStatic
   fun startActivityForResult(
     transformationLayout: TransformationLayout,
     intent: Intent,
