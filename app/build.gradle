@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.plugin.parcelize'
 apply from: '../dependencies.gradle'
 
 android {
@@ -13,8 +13,8 @@ android {
     versionCode versions.versionCode
     versionName versions.versionName
   }
-  androidExtensions {
-    experimental = true
+  buildFeatures {
+    viewBinding true
   }
 }
 

@@ -27,24 +27,23 @@ import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import com.skydoves.transformationlayoutdemo.MockUtil.getMockPosters
 import com.skydoves.transformationlayoutdemo.R
+import com.skydoves.transformationlayoutdemo.databinding.FragmentHomeBinding
 import com.skydoves.transformationlayoutdemo.recycler.Poster
 import com.skydoves.transformationlayoutdemo.recycler.PosterMenuAdapter
 import com.skydoves.transformationlayoutdemo.recycler.PosterSingleAdapter
-import kotlinx.android.synthetic.main.fragment_home.backgroundView
-import kotlinx.android.synthetic.main.fragment_home.fab
-import kotlinx.android.synthetic.main.fragment_home.menu_home
-import kotlinx.android.synthetic.main.fragment_home.recyclerView
-import kotlinx.android.synthetic.main.fragment_home.recyclerView_menu
-import kotlinx.android.synthetic.main.fragment_home.transformationLayout
 
 class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
+
+  private var _binding: FragmentHomeBinding? = null
+  private val binding get() = _binding!!
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_home, container, false)
+  ): View {
+    _binding = FragmentHomeBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,22 +72,25 @@ class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    recyclerView.adapter = PosterSingleAdapter(this).apply { addPosterList(getMockPosters()) }
-    recyclerView_menu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
+    with(binding) {
+      recyclerView.adapter =
+        PosterSingleAdapter(this@MainSingleFragment).apply { addPosterList(getMockPosters()) }
+      recyclerViewMenu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
 
-    fab.setOnClickListener {
-      if (!transformationLayout.isTransforming) {
-        backgroundView.visibility = View.VISIBLE
+      fab.setOnClickListener {
+        if (!transformationLayout.isTransforming) {
+          backgroundView.visibility = View.VISIBLE
+        }
+        transformationLayout.startTransform()
       }
-      transformationLayout.startTransform()
-    }
 
-    menu_home.setOnClickListener {
-      if (!transformationLayout.isTransforming) {
-        backgroundView.visibility = View.GONE
+      menuHome.setOnClickListener {
+        if (!transformationLayout.isTransforming) {
+          backgroundView.visibility = View.GONE
+        }
+        transformationLayout.finishTransform()
+        Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
       }
-      transformationLayout.finishTransform()
-      Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
     }
   }
 

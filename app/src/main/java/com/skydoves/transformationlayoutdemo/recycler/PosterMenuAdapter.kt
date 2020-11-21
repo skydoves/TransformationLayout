@@ -18,15 +18,11 @@ package com.skydoves.transformationlayoutdemo.recycler
 
 import android.os.SystemClock
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayoutdemo.DetailActivity
-import com.skydoves.transformationlayoutdemo.R
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_menu_transformationLayout
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_post
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_title
+import com.skydoves.transformationlayoutdemo.databinding.ItemPosterMenuBinding
 
 class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolder>() {
 
@@ -34,21 +30,21 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
   private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    return PosterViewHolder(inflater.inflate(R.layout.item_poster_menu, parent, false))
+    val binding = ItemPosterMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return PosterViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
     val item = items[position]
-    holder.itemView.run {
-      Glide.with(context)
+    holder.binding.run {
+      Glide.with(root.context)
         .load(item.poster)
-        .into(item_poster_post)
-      item_poster_title.text = item.name
-      setOnClickListener {
+        .into(itemPosterPost)
+      itemPosterTitle.text = item.name
+      root.setOnClickListener {
         val now = SystemClock.elapsedRealtime()
-        if (now - previousTime >= item_poster_menu_transformationLayout.duration) {
-          DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
+        if (now - previousTime >= itemPosterMenuTransformationLayout.duration) {
+          DetailActivity.startActivity(root.context, itemPosterMenuTransformationLayout, item)
           previousTime = now
         }
       }
@@ -63,5 +59,6 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
 
   override fun getItemCount() = items.size
 
-  class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+  class PosterViewHolder(val binding: ItemPosterMenuBinding) :
+    RecyclerView.ViewHolder(binding.root)
 }

@@ -20,17 +20,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.skydoves.transformationlayout.onTransformationStartContainer
-import kotlinx.android.synthetic.main.activity_main.main_bottom_navigation
-import kotlinx.android.synthetic.main.activity_main.main_viewpager
+import com.skydoves.transformationlayoutdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     onTransformationStartContainer()
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
 
-    with(main_viewpager) {
+    val binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+
+    with(binding.mainViewpager) {
       adapter = MainPagerAdapter(supportFragmentManager)
       offscreenPageLimit = 3
       addOnPageChangeListener(
@@ -43,17 +44,17 @@ class MainActivity : AppCompatActivity() {
           ) = Unit
 
           override fun onPageSelected(position: Int) {
-            main_bottom_navigation.menu.getItem(position).isChecked = true
+            binding.mainBottomNavigation.menu.getItem(position).isChecked = true
           }
         }
       )
     }
 
-    main_bottom_navigation.setOnNavigationItemSelectedListener {
+    binding.mainBottomNavigation.setOnNavigationItemSelectedListener {
       when (it.itemId) {
-        R.id.action_one -> main_viewpager.currentItem = 0
-        R.id.action_two -> main_viewpager.currentItem = 1
-        R.id.action_three -> main_viewpager.currentItem = 2
+        R.id.action_one -> binding.mainViewpager.currentItem = 0
+        R.id.action_two -> binding.mainViewpager.currentItem = 1
+        R.id.action_three -> binding.mainViewpager.currentItem = 2
       }
       true
     }

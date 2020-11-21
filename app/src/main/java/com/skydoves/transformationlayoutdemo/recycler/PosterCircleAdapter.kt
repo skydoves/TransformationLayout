@@ -18,13 +18,11 @@ package com.skydoves.transformationlayoutdemo.recycler
 
 import android.os.SystemClock
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayoutdemo.DetailActivity
-import com.skydoves.transformationlayoutdemo.R
-import kotlinx.android.synthetic.main.item_poster_circle.view.*
+import com.skydoves.transformationlayoutdemo.databinding.ItemPosterCircleBinding
 
 class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewHolder>() {
 
@@ -32,22 +30,22 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
   private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    return PosterViewHolder(inflater.inflate(R.layout.item_poster_circle, parent, false))
+    val binding = ItemPosterCircleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return PosterViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
     val item = items[position]
-    holder.itemView.run {
-      Glide.with(context)
+    holder.binding.run {
+      Glide.with(root.context)
         .load(item.poster)
-        .into(item_poster_post)
-      item_poster_title.text = item.name
-      item_poster_running_time.text = item.playtime
-      setOnClickListener {
+        .into(itemPosterPost)
+      itemPosterTitle.text = item.name
+      itemPosterRunningTime.text = item.playtime
+      root.setOnClickListener {
         val now = SystemClock.elapsedRealtime()
-        if (now - previousTime >= item_poster_circle_transformationLayout.duration)
-          DetailActivity.startActivity(context, item_poster_circle_transformationLayout, item)
+        if (now - previousTime >= itemPosterCircleTransformationLayout.duration)
+          DetailActivity.startActivity(root.context, itemPosterCircleTransformationLayout, item)
         previousTime = now
       }
     }
@@ -61,5 +59,6 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
 
   override fun getItemCount() = items.size
 
-  class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+  class PosterViewHolder(val binding: ItemPosterCircleBinding) :
+    RecyclerView.ViewHolder(binding.root)
 }

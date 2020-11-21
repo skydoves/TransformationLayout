@@ -35,7 +35,7 @@ import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 class TransformationLayout : FrameLayout, TransformationParams {
 

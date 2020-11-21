@@ -18,13 +18,11 @@ package com.skydoves.transformationlayoutdemo.recycler
 
 import android.os.SystemClock
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
-import com.skydoves.transformationlayoutdemo.R
-import kotlinx.android.synthetic.main.item_poster.view.*
+import com.skydoves.transformationlayoutdemo.databinding.ItemPosterBinding
 
 class PosterSingleAdapter
 constructor(
@@ -35,27 +33,27 @@ constructor(
   private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    return PosterViewHolder(inflater.inflate(R.layout.item_poster, parent, false))
+    val binding = ItemPosterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return PosterViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
     val item = items[position]
-    holder.itemView.run {
-      Glide.with(context)
+    holder.binding.run {
+      Glide.with(root.context)
         .load(item.poster)
-        .into(item_poster_post)
-      item_poster_title.text = item.name
-      item_poster_running_time.text = item.playtime
+        .into(itemPosterPost)
+      itemPosterTitle.text = item.name
+      itemPosterRunningTime.text = item.playtime
 
       // sets a transition name to the transformation layout.
       // this code must not be in listener.
-      item_poster_transformationLayout.transitionName = item.name
+      itemPosterTransformationLayout.transitionName = item.name
 
-      setOnClickListener {
+      root.setOnClickListener {
         val now = SystemClock.elapsedRealtime()
-        if (now - previousTime >= item_poster_transformationLayout.duration) {
-          delegate.onItemClick(item, item_poster_transformationLayout)
+        if (now - previousTime >= itemPosterTransformationLayout.duration) {
+          delegate.onItemClick(item, itemPosterTransformationLayout)
           previousTime = now
         }
       }
@@ -70,7 +68,7 @@ constructor(
 
   override fun getItemCount() = items.size
 
-  class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+  class PosterViewHolder(val binding: ItemPosterBinding) : RecyclerView.ViewHolder(binding.root)
 
   interface PosterDelegate {
     fun onItemClick(poster: Poster, itemView: TransformationLayout)

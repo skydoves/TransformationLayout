@@ -23,34 +23,37 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.transformationlayoutdemo.MockUtil.getMockPosters
+import com.skydoves.transformationlayoutdemo.databinding.FragmentLibraryBinding
 import com.skydoves.transformationlayoutdemo.recycler.PosterLineAdapter
-import kotlinx.android.synthetic.main.fragment_library.fab
-import kotlinx.android.synthetic.main.fragment_library.menu_card
-import kotlinx.android.synthetic.main.fragment_library.recyclerView
-import kotlinx.android.synthetic.main.fragment_library.transformationLayout
 
 class LibraryFragment : Fragment() {
+
+  private var _binding: FragmentLibraryBinding? = null
+  private val binding get() = _binding!!
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    return inflater.inflate(R.layout.fragment_library, container, false)
+    _binding = FragmentLibraryBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    recyclerView.adapter = PosterLineAdapter().apply { addPosterList(getMockPosters()) }
+    with(binding) {
+      recyclerView.adapter = PosterLineAdapter().apply { addPosterList(getMockPosters()) }
 
-    fab.setOnClickListener {
-      transformationLayout.startTransform()
-    }
+      fab.setOnClickListener {
+        transformationLayout.startTransform()
+      }
 
-    menu_card.setOnClickListener {
-      transformationLayout.finishTransform()
-      Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
+      menuCard.setOnClickListener {
+        transformationLayout.finishTransform()
+        Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
+      }
     }
   }
 }

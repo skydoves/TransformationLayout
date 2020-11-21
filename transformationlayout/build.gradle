@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'org.jetbrains.kotlin.plugin.parcelize'
 apply from: '../dependencies.gradle'
 apply from: '../publish.gradle'
 

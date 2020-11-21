@@ -23,23 +23,23 @@ import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationAppCompatActivity
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
+import com.skydoves.transformationlayoutdemo.databinding.ActivityDetailBinding
 import com.skydoves.transformationlayoutdemo.recycler.Poster
-import kotlinx.android.synthetic.main.activity_detail.detail_description
-import kotlinx.android.synthetic.main.activity_detail.detail_title
-import kotlinx.android.synthetic.main.activity_detail.profile_detail_background
 
 class DetailActivity : TransformationAppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_detail)
+
+    val binding = ActivityDetailBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
     intent.getParcelableExtra<Poster>(posterExtraName)?.let {
       Glide.with(this)
         .load(it.poster)
-        .into(profile_detail_background)
-      detail_title.text = it.name
-      detail_description.text = it.description
+        .into(binding.profileDetailBackground)
+      binding.detailTitle.text = it.name
+      binding.detailDescription.text = it.description
     }
   }
 

@@ -19,12 +19,15 @@ package com.skydoves.transformationlayoutdemo.single
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.skydoves.transformationlayoutdemo.R
+import com.skydoves.transformationlayoutdemo.databinding.ActivitySingleMainBinding
 
 class MainSingleActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_single_main)
+
+    val binding = ActivitySingleMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
     supportFragmentManager
       .beginTransaction()

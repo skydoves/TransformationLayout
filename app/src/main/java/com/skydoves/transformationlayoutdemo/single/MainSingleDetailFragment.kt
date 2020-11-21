@@ -24,21 +24,21 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import com.skydoves.transformationlayoutdemo.R
+import com.skydoves.transformationlayoutdemo.databinding.ActivityDetailBinding
 import com.skydoves.transformationlayoutdemo.recycler.Poster
-import kotlinx.android.synthetic.main.activity_detail.detail_container
-import kotlinx.android.synthetic.main.activity_detail.detail_description
-import kotlinx.android.synthetic.main.activity_detail.detail_title
-import kotlinx.android.synthetic.main.activity_detail.profile_detail_background
 
 class MainSingleDetailFragment : Fragment() {
+
+  private var _binding: ActivityDetailBinding? = null
+  private val binding get() = _binding!!
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.activity_detail, container, false)
+  ): View {
+    _binding = ActivityDetailBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,13 +56,13 @@ class MainSingleDetailFragment : Fragment() {
     poster?.let {
 
       // [Step2]: sets a transition name to the target view.
-      detail_container.transitionName = poster.name
+      binding.detailContainer.transitionName = poster.name
 
       Glide.with(this)
         .load(it.poster)
-        .into(profile_detail_background)
-      detail_title.text = it.name
-      detail_description.text = it.description
+        .into(binding.profileDetailBackground)
+      binding.detailTitle.text = it.name
+      binding.detailDescription.text = it.description
     }
   }
 

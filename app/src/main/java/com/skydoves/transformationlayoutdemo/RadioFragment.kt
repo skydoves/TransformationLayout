@@ -21,32 +21,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.skydoves.transformationlayoutdemo.databinding.FragmentRadioBinding
 import com.skydoves.transformationlayoutdemo.recycler.PosterCircleAdapter
-import kotlinx.android.synthetic.main.fragment_radio.fab
-import kotlinx.android.synthetic.main.fragment_radio.recyclerView
-import kotlinx.android.synthetic.main.fragment_radio.transformationLayout_fab
 
 class RadioFragment : Fragment() {
+
+  private var _binding: FragmentRadioBinding? = null
+  private val binding get() = _binding!!
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    return inflater.inflate(R.layout.fragment_radio, container, false)
+    _binding = FragmentRadioBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(MockUtil.getMockPosters()) }
+    with(binding) {
+      recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(MockUtil.getMockPosters()) }
 
-    fab.setOnClickListener {
-      DetailActivity.startActivity(
-        requireContext(),
-        transformationLayout_fab,
-        MockUtil.getMockPoster()
-      )
+      fab.setOnClickListener {
+        DetailActivity.startActivity(
+          requireContext(),
+          transformationLayoutFab,
+          MockUtil.getMockPoster()
+        )
+      }
     }
   }
 }
