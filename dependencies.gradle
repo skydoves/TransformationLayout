@@ -11,7 +11,7 @@ ext.versions = [
     bintrayPlugin    : '1.8.5',
 
     kotlin           : '1.4.20',
-    googleMaterial   : '1.3.0-alpha03',
+    googleMaterial   : '1.3.0-alpha04',
 
     // for demo
     constraintVersion: '2.0.2',
