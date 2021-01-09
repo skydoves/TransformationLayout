@@ -40,4 +40,4 @@ dependencies {
   implementation project(":transformationlayout")
 }
 
-apply from: '../spotless.gradle'
+apply from: "$rootDir/spotless.gradle"

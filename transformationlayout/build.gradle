@@ -51,4 +51,4 @@ tasks.withType(Javadoc) {
   options.addBooleanOption('Xdoclint:none', true)
 }
 
-apply from: '../spotless.gradle'
+apply from: "$rootDir/spotless.gradle"
