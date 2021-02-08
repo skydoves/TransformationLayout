@@ -25,7 +25,6 @@ Go to the [Releases](https://github.com/skydoves/TransformationLayout/releases) 
 </p>
 
 ## Including in your project
-[![Download](https://api.bintray.com/packages/devmagician/maven/transformationlayout/images/download.svg) ](https://bintray.com/devmagician/maven/transformationlayout/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/transformationlayout.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22transformationlayout%22)
 [![JitPack](https://jitpack.io/v/skydoves/TransformationLayout.svg)](https://jitpack.io/#skydoves/TransformationLayout)
 ### Gradle 
@@ -33,7 +32,7 @@ Add below codes to your **root** `build.gradle` file (not your module build.grad
 ```gradle
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 ```
