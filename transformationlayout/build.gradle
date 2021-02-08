@@ -17,8 +17,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'org.jetbrains.dokka'
 apply from: "$rootDir/dependencies.gradle"
-apply from: "$rootDir/publish.gradle"
-
 
 android {
   compileSdkVersion versions.compileSdk
@@ -38,17 +36,5 @@ dependencies {
   implementation "com.google.android.material:material:$versions.googleMaterial"
 }
 
-dokka {
-  outputFormat = 'html'
-  outputDirectory = "$buildDir/javadoc"
-  configuration {
-    moduleName = 'transformlayout'
-  }
-}
-
-tasks.withType(Javadoc) {
-  excludes = ['**/*.kt']
-  options.addBooleanOption('Xdoclint:none', true)
-}
-
-apply from: "$rootDir/spotless.gradle"
+apply plugin: "com.vanniktech.maven.publish"
+apply from: '../spotless.gradle'
