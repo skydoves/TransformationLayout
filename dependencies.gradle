@@ -22,9 +22,9 @@ ext.versions = [
     spotlessGradle   : '5.9.0',
     ktlintGradle     : '0.41.0',
     dokkaGradle      : '1.4.30',
-    mavenPublish     : '0.13.0',
+    mavenPublish     : '0.14.2',
 
-    kotlin           : '1.4.20',
+    kotlin           : '1.4.30',
     googleMaterial   : '1.4.0-alpha01',
 
     // for demo
