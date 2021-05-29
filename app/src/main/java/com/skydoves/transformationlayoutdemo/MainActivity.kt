@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
       )
     }
 
-    binding.mainBottomNavigation.setOnNavigationItemSelectedListener {
+    binding.mainBottomNavigation.setOnItemSelectedListener {
       when (it.itemId) {
         R.id.action_one -> binding.mainViewpager.currentItem = 0
         R.id.action_two -> binding.mainViewpager.currentItem = 1
