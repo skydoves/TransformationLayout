@@ -19,13 +19,13 @@ ext.versions = [
     versionName      : '1.0.7',
 
     gradleBuildTool  : '4.1.3',
-    spotlessGradle   : '5.9.0',
+    spotlessGradle   : '5.12.3',
     ktlintGradle     : '0.41.0',
     dokkaGradle      : '1.4.30',
-    mavenPublish     : '0.14.2',
+    mavenPublish     : '0.15.1',
 
-    kotlin           : '1.4.30',
-    googleMaterial   : '1.4.0-alpha01',
+    kotlin           : '1.4.32',
+    googleMaterial   : '1.4.0-beta01',
 
     // for demo
     constraintVersion: '2.0.4',
