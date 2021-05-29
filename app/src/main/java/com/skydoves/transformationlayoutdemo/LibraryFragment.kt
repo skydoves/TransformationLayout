@@ -35,7 +35,7 @@ class LibraryFragment : Fragment() {
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
+  ): View {
     _binding = FragmentLibraryBinding.inflate(inflater, container, false)
     return binding.root
   }
@@ -55,5 +55,10 @@ class LibraryFragment : Fragment() {
         Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
       }
     }
+  }
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    _binding = null
   }
 }

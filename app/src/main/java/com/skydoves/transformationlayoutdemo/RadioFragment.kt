@@ -33,7 +33,7 @@ class RadioFragment : Fragment() {
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
+  ): View {
     _binding = FragmentRadioBinding.inflate(inflater, container, false)
     return binding.root
   }
@@ -52,5 +52,10 @@ class RadioFragment : Fragment() {
         )
       }
     }
+  }
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    _binding = null
   }
 }
