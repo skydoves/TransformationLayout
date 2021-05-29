@@ -55,6 +55,7 @@ internal object DefaultParamValues : TransformationParams {
   override var holdAtEndEnabled: Boolean = false
 }
 
+@JvmSynthetic
 internal fun TransformationParams.getMaterialContainerTransform(): MaterialContainerTransform {
   val params = this
   return MaterialContainerTransform().apply {
@@ -70,6 +71,7 @@ internal fun TransformationParams.getMaterialContainerTransform(): MaterialConta
   }
 }
 
+@JvmSynthetic
 internal fun TransformationParams.getMaterialFragmentTransform(): MaterialContainerTransform {
   val params = this
   return MaterialContainerTransform().apply {

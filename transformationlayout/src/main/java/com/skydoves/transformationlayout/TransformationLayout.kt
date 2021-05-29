@@ -197,9 +197,14 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
+  fun setOnTransformFinishListener(onTransformFinishListener: OnTransformFinishListener) {
+    this.onTransformFinishListener = onTransformFinishListener
+  }
+
+  /** sets a callback method which invoked when the transforming is finished. */
   @JvmSynthetic
   fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
-    this.onTransformFinishListener = OnTransformFinishListener { isTransformed -> action(isTransformed) }
+    setOnTransformFinishListener(OnTransformFinishListener { isTransformed -> action(isTransformed) })
   }
 
   /**

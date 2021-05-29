@@ -21,6 +21,7 @@ import android.content.Context
 import android.content.ContextWrapper
 
 /** gets an activity from a context. */
+@JvmSynthetic
 internal fun Context.getActivity(): Activity? {
   var context = this
   while (context is ContextWrapper) {
