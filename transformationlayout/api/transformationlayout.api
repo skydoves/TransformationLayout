@@ -1,0 +1,204 @@
+public abstract interface class com/skydoves/transformationlayout/OnTransformFinishListener {
+	public abstract fun onFinish (Z)V
+}
+
+public abstract class com/skydoves/transformationlayout/TransformationActivity : androidx/activity/ComponentActivity {
+	public fun <init> ()V
+	protected fun onCreate (Landroid/os/Bundle;)V
+}
+
+public abstract class com/skydoves/transformationlayout/TransformationAppCompatActivity : androidx/appcompat/app/AppCompatActivity {
+	public fun <init> ()V
+	protected fun onCreate (Landroid/os/Bundle;)V
+}
+
+public final class com/skydoves/transformationlayout/TransformationCompat {
+	public static final field INSTANCE Lcom/skydoves/transformationlayout/TransformationCompat;
+	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;)V
+	public static synthetic fun addTransformation$default (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun onTransformationEndContainer (Landroid/app/Activity;Lcom/skydoves/transformationlayout/TransformationLayout$Params;)V
+	public static final fun onTransformationEndContainer (Landroidx/fragment/app/Fragment;Lcom/skydoves/transformationlayout/TransformationLayout$Params;)V
+	public static final fun onTransformationEndContainerApplyParams (Landroid/app/Activity;)V
+	public static final fun onTransformationStartContainer (Landroid/app/Activity;)V
+	public static final fun onTransformationStartContainer (Landroidx/fragment/app/Fragment;)V
+	public static final fun startActivity (Lcom/skydoves/transformationlayout/TransformationLayout;Landroid/content/Intent;)V
+	public static final fun startActivityForResult (Lcom/skydoves/transformationlayout/TransformationLayout;Landroid/content/Intent;I)V
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout : android/widget/FrameLayout, com/skydoves/transformationlayout/TransformationParams {
+	public field onTransformFinishListener Lcom/skydoves/transformationlayout/OnTransformFinishListener;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public final fun bindTargetView (Landroid/view/View;)V
+	public final fun finishTransform ()V
+	public final fun finishTransform (Landroid/view/ViewGroup;)V
+	public final fun finishTransformWithDelay (J)V
+	public final fun finishTransformWithDelay (Landroid/view/ViewGroup;J)V
+	public fun getAllContainerColors ()I
+	public final fun getBundle (Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
+	public static synthetic fun getBundle$default (Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Landroid/os/Bundle;
+	public fun getContainerColor ()I
+	public fun getDirection ()Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public fun getDuration ()J
+	public fun getElevationShadowEnabled ()Z
+	public fun getEndElevation ()F
+	public fun getFadeMode ()Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public fun getFitMode ()Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public fun getHoldAtEndEnabled ()Z
+	public final fun getParams ()Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public final fun getParcelableParams ()Landroid/os/Parcelable;
+	public fun getPathMotion ()Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public fun getScrimColor ()I
+	public fun getStartElevation ()F
+	public final fun getThrottledTime ()J
+	public fun getZOrder ()I
+	public final fun isTransformed ()Z
+	public final fun isTransforming ()Z
+	public fun setAllContainerColors (I)V
+	public fun setContainerColor (I)V
+	public fun setDirection (Lcom/skydoves/transformationlayout/TransformationLayout$Direction;)V
+	public fun setDuration (J)V
+	public fun setElevationShadowEnabled (Z)V
+	public fun setEndElevation (F)V
+	public fun setFadeMode (Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;)V
+	public fun setFitMode (Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;)V
+	public fun setHoldAtEndEnabled (Z)V
+	public final fun setOnTransformFinishListener (Lcom/skydoves/transformationlayout/OnTransformFinishListener;)V
+	public final synthetic fun setOnTransformFinishListener (Lkotlin/jvm/functions/Function1;)V
+	public fun setPathMotion (Lcom/skydoves/transformationlayout/TransformationLayout$Motion;)V
+	public fun setScrimColor (I)V
+	public fun setStartElevation (F)V
+	public final fun setThrottledTime (J)V
+	public fun setZOrder (I)V
+	public final fun startTransform ()V
+	public final fun startTransform (Landroid/view/ViewGroup;)V
+	public final fun startTransformWithDelay (J)V
+	public final fun startTransformWithDelay (Landroid/view/ViewGroup;J)V
+	public final fun withActivity (Landroid/app/Activity;Ljava/lang/String;)Landroid/os/Bundle;
+	public final fun withContext (Landroid/content/Context;Ljava/lang/String;)Landroid/os/Bundle;
+	public final fun withView (Landroid/view/View;Ljava/lang/String;)Landroid/os/Bundle;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$Builder {
+	public fun <init> (Landroid/content/Context;)V
+	public final fun build ()Lcom/skydoves/transformationlayout/TransformationLayout;
+	public final fun setContainerColor (I)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setDirection (Lcom/skydoves/transformationlayout/TransformationLayout$Direction;)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setDuration (J)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setFadeMode (Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setFitMode (Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setOnTransformFinishListener (Lcom/skydoves/transformationlayout/OnTransformFinishListener;)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final synthetic fun setOnTransformFinishListener (Lkotlin/jvm/functions/Function1;)V
+	public final fun setPathMode (Lcom/skydoves/transformationlayout/TransformationLayout$Motion;)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setScrimColor (I)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+	public final fun setZOrder (I)Lcom/skydoves/transformationlayout/TransformationLayout$Builder;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$Direction : java/lang/Enum {
+	public static final field AUTO Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public static final field ENTER Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public static final field RETURN Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$FadeMode : java/lang/Enum {
+	public static final field CROSS Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public static final field IN Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public static final field OUT Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public static final field THROUGH Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$FitMode : java/lang/Enum {
+	public static final field AUTO Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public static final field HEIGHT Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public static final field WIDTH Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$Motion : java/lang/Enum {
+	public static final field ARC Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public static final field LINEAR Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public final fun getPathMotion ()Landroid/transition/PathMotion;
+	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+}
+
+public final class com/skydoves/transformationlayout/TransformationLayout$Params : android/os/Parcelable, com/skydoves/transformationlayout/TransformationParams {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (JLcom/skydoves/transformationlayout/TransformationLayout$Motion;IIIILcom/skydoves/transformationlayout/TransformationLayout$Direction;Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;FFZZLjava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component10 ()F
+	public final fun component11 ()F
+	public final fun component12 ()Z
+	public final fun component13 ()Z
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()I
+	public final fun component7 ()Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public final fun component8 ()Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public final fun component9 ()Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public final fun copy (JLcom/skydoves/transformationlayout/TransformationLayout$Motion;IIIILcom/skydoves/transformationlayout/TransformationLayout$Direction;Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;FFZZLjava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public static synthetic fun copy$default (Lcom/skydoves/transformationlayout/TransformationLayout$Params;JLcom/skydoves/transformationlayout/TransformationLayout$Motion;IIIILcom/skydoves/transformationlayout/TransformationLayout$Direction;Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;FFZZLjava/lang/String;ILjava/lang/Object;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAllContainerColors ()I
+	public fun getContainerColor ()I
+	public fun getDirection ()Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public fun getDuration ()J
+	public fun getElevationShadowEnabled ()Z
+	public fun getEndElevation ()F
+	public fun getFadeMode ()Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public fun getFitMode ()Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public fun getHoldAtEndEnabled ()Z
+	public fun getPathMotion ()Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public fun getScrimColor ()I
+	public fun getStartElevation ()F
+	public final fun getTransitionName ()Ljava/lang/String;
+	public fun getZOrder ()I
+	public fun hashCode ()I
+	public fun setAllContainerColors (I)V
+	public fun setContainerColor (I)V
+	public fun setDirection (Lcom/skydoves/transformationlayout/TransformationLayout$Direction;)V
+	public fun setDuration (J)V
+	public fun setElevationShadowEnabled (Z)V
+	public fun setEndElevation (F)V
+	public fun setFadeMode (Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;)V
+	public fun setFitMode (Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;)V
+	public fun setHoldAtEndEnabled (Z)V
+	public fun setPathMotion (Lcom/skydoves/transformationlayout/TransformationLayout$Motion;)V
+	public fun setScrimColor (I)V
+	public fun setStartElevation (F)V
+	public final fun setTransitionName (Ljava/lang/String;)V
+	public fun setZOrder (I)V
+	public fun toString ()Ljava/lang/String;
+	public fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public class com/skydoves/transformationlayout/TransformationLayout$Params$Creator : android/os/Parcelable$Creator {
+	public fun <init> ()V
+	public final fun createFromParcel (Landroid/os/Parcel;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public synthetic fun createFromParcel (Landroid/os/Parcel;)Ljava/lang/Object;
+	public final fun newArray (I)[Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public synthetic fun newArray (I)[Ljava/lang/Object;
+}
+
+public final class com/skydoves/transformationlayout/TransitionExtensionKt {
+	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+	public static synthetic fun addTransformation$default (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;ILjava/lang/Object;)Landroidx/fragment/app/FragmentTransaction;
+	public static final fun onTransformationEndContainer (Landroid/app/Activity;Lcom/skydoves/transformationlayout/TransformationLayout$Params;)V
+	public static final fun onTransformationEndContainer (Landroidx/fragment/app/Fragment;Lcom/skydoves/transformationlayout/TransformationLayout$Params;)V
+	public static final fun onTransformationStartContainer (Landroid/app/Activity;)V
+	public static final fun onTransformationStartContainer (Landroidx/fragment/app/Fragment;)V
+}
+
