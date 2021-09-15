@@ -16,6 +16,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'binary-compatibility-validator'
 apply from: "$rootDir/dependencies.gradle"
 
 android {
