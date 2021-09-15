@@ -27,6 +27,9 @@ android {
     versionCode versions.versionCode
     versionName versions.versionName
   }
+  buildFeatures {
+    buildConfig false
+  }
 }
 
 kotlin {
