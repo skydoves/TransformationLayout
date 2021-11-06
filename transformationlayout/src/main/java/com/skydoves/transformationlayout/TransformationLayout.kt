@@ -37,17 +37,17 @@ import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import kotlinx.parcelize.Parcelize
 
-class TransformationLayout : FrameLayout, TransformationParams {
+public class TransformationLayout : FrameLayout, TransformationParams {
 
   /** A target view that will be transformed from [TransformationLayout]. */
   private lateinit var targetView: View
 
   /** Presents [TransformationLayout] is already transformed or not.  */
-  var isTransformed: Boolean = false
+  public var isTransformed: Boolean = false
     private set
 
   /** Presents [TransformationLayout] is during transforming or not. */
-  var isTransforming: Boolean = false
+  public var isTransforming: Boolean = false
     private set
 
   /** Duration of the transformation. */
@@ -93,17 +93,17 @@ class TransformationLayout : FrameLayout, TransformationParams {
   override var holdAtEndEnabled: Boolean = DefaultParamValues.holdAtEndEnabled
 
   @JvmField
-  var onTransformFinishListener: OnTransformFinishListener? = null
+  public var onTransformFinishListener: OnTransformFinishListener? = null
 
-  var throttledTime = SystemClock.elapsedRealtime()
+  public var throttledTime: Long = SystemClock.elapsedRealtime()
 
-  constructor(context: Context) : super(context)
+  public constructor(context: Context) : super(context)
 
-  constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
+  public constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(
+  public constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(
     context,
     attributeSet,
     defStyle
@@ -197,13 +197,13 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
-  fun setOnTransformFinishListener(onTransformFinishListener: OnTransformFinishListener) {
+  public fun setOnTransformFinishListener(onTransformFinishListener: OnTransformFinishListener) {
     this.onTransformFinishListener = onTransformFinishListener
   }
 
   /** sets a callback method which invoked when the transforming is finished. */
   @JvmSynthetic
-  fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
+  public fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
     setOnTransformFinishListener(OnTransformFinishListener { isTransformed -> action(isTransformed) })
   }
 
@@ -211,7 +211,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
    * binds a target view for transforming [TransformationLayout] to the target view.
    * This function must be called before invoking [startTransform] and [finishTransform].
    */
-  fun bindTargetView(targetView: View) {
+  public fun bindTargetView(targetView: View) {
     this.targetView = targetView.apply { visible(false) }
   }
 
@@ -219,7 +219,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
    * sets an activity of the transition and returns a bundle of the transition information.
    * The return value must be used in startActivity's parameter as a bundle.
    * */
-  fun withActivity(activity: Activity, transitionName: String): Bundle {
+  public fun withActivity(activity: Activity, transitionName: String): Bundle {
     setTransitionName(transitionName)
     return ActivityOptions.makeSceneTransitionAnimation(activity, this, transitionName).toBundle()
   }
@@ -228,7 +228,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
    * sets a context of the transition and returns a bundle of the transition information.
    * The return value must be used in startActivity's parameter as a bundle.
    * */
-  fun withContext(context: Context, transitionName: String): Bundle {
+  public fun withContext(context: Context, transitionName: String): Bundle {
     setTransitionName(transitionName)
     val activity = context.getActivity()
     requireNotNull(activity) { "The context parameter is must an activity's context!" }
@@ -239,7 +239,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
    * sets an view of the transition and returns a bundle of the transition information.
    * The return value must be used in startActivity's parameter as a bundle.
    * */
-  fun withView(view: View, transitionName: String): Bundle {
+  public fun withView(view: View, transitionName: String): Bundle {
     setTransitionName(transitionName)
     val activity = view.context.getActivity()
     requireNotNull(activity) { "The context parameter is must an activity's context!" }
@@ -247,7 +247,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** get a bundle with parcelable transformation params. */
-  fun getBundle(keyName: String, transitionName: String? = this.transitionName): Bundle {
+  public fun getBundle(keyName: String, transitionName: String? = this.transitionName): Bundle {
     if (transitionName != null) {
       setTransitionName(transitionName)
     }
@@ -255,7 +255,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** gets parameters of the [TransformationLayout.Params]. */
-  fun getParams(): Params {
+  public fun getParams(): Params {
     return Params(
       duration = this@TransformationLayout.duration,
       pathMotion = this@TransformationLayout.pathMotion,
@@ -275,12 +275,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** gets a parcelable of the [TransformationLayout.Params]. */
-  fun getParcelableParams(): Parcelable {
+  public fun getParcelableParams(): Parcelable {
     return getParams()
   }
 
   /** starts transforming the [TransformationLayout] into targetView with stopping container. */
-  fun startTransform(container: ViewGroup) {
+  public fun startTransform(container: ViewGroup) {
     container.post {
       require(::targetView.isInitialized) {
         "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
@@ -297,7 +297,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** starts transforming the [TransformationLayout] into targetView with delaying. */
-  fun startTransformWithDelay(container: ViewGroup, delay: Long) {
+  public fun startTransformWithDelay(container: ViewGroup, delay: Long) {
     postDelayed(
       {
         startTransform(container)
@@ -307,17 +307,17 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** starts transforming the [TransformationLayout] into targetView with stopping parent. */
-  fun startTransform() {
+  public fun startTransform() {
     startTransform(parent as ViewGroup)
   }
 
   /** starts transforming the [TransformationLayout] into targetView with stopping parent with delaying. */
-  fun startTransformWithDelay(delay: Long) {
+  public fun startTransformWithDelay(delay: Long) {
     startTransformWithDelay(parent as ViewGroup, delay)
   }
 
   /** transforming the targetView into [TransformationLayout]. */
-  fun finishTransform(container: ViewGroup) {
+  public fun finishTransform(container: ViewGroup) {
     container.post {
       require(::targetView.isInitialized) {
         "You must set a targetView using bindTargetView() or transformation_targetView attribute." +
@@ -330,7 +330,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** transforming the targetView into [TransformationLayout] with delaying. */
-  fun finishTransformWithDelay(container: ViewGroup, delay: Long) {
+  public fun finishTransformWithDelay(container: ViewGroup, delay: Long) {
     postDelayed(
       {
         finishTransform(container)
@@ -340,12 +340,12 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** transforming the targetView into [TransformationLayout] with stopping parent. */
-  fun finishTransform() {
+  public fun finishTransform() {
     finishTransform(parent as ViewGroup)
   }
 
   /** transforming the targetView into [TransformationLayout] with stopping parent with delaying.. */
-  fun finishTransformWithDelay(delay: Long) {
+  public fun finishTransformWithDelay(delay: Long) {
     finishTransformWithDelay(parent as ViewGroup, delay)
   }
 
@@ -395,7 +395,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   @Parcelize
-  data class Params(
+  public data class Params(
     override var duration: Long,
     override var pathMotion: Motion,
     override var zOrder: Int,
@@ -413,7 +413,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   ) : Parcelable, TransformationParams
 
   /** The [Direction] to be used by this transform. */
-  enum class Direction(val value: Int) {
+  public enum class Direction(public val value: Int) {
     /**
      * Indicates that this transition should use automatic detection to determine whether it is an
      * Enter or a Return. If the end container has a larger area than the start container then it is
@@ -429,7 +429,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** The [FadeMode] to be used to swap the content of the start View with that of the end View. */
-  enum class FadeMode(val value: Int) {
+  public enum class FadeMode(public val value: Int) {
     /**
      * Indicates that this transition should only fade in the incoming content, without changing the
      * opacity of the outgoing content.
@@ -453,7 +453,7 @@ class TransformationLayout : FrameLayout, TransformationParams {
   }
 
   /** The [FitMode] to be used when scaling the incoming content of the end View. */
-  enum class FitMode(val value: Int) {
+  public enum class FitMode(public val value: Int) {
     /**
      * Indicates that this transition should automatically choose whether to use {@link
      * #FIT_MODE_WIDTH} or {@link #FIT_MODE_HEIGHT}.
@@ -473,43 +473,51 @@ class TransformationLayout : FrameLayout, TransformationParams {
     HEIGHT(MaterialContainerTransform.FIT_MODE_HEIGHT)
   }
 
-  enum class Motion(private val value: Int) {
+  public enum class Motion(private val value: Int) {
     /** Indicates that this transition should be drawn as the arc path. */
     ARC(0),
 
     /** Indicates that this transition should be drawn as the linear path. */
     LINEAR(1);
 
-    fun getPathMotion(): PathMotion? {
+    public fun getPathMotion(): PathMotion? {
       if (value == 0) return MaterialArcMotion()
       return null
     }
   }
 
   /** Builder class for creating a new instance of the [TransformationLayout]. */
-  class Builder(context: Context) {
+  public class Builder(context: Context) {
     private val transformationLayout = TransformationLayout(context)
 
-    fun setDuration(value: Long) = apply { transformationLayout.duration = value }
-    fun setPathMode(value: Motion) = apply { transformationLayout.pathMotion = value }
-    fun setZOrder(value: Int) = apply { transformationLayout.zOrder = value }
-    fun setContainerColor(@ColorInt value: Int) = apply {
+    public fun setDuration(value: Long): Builder = apply { transformationLayout.duration = value }
+    public fun setPathMode(value: Motion): Builder =
+      apply { transformationLayout.pathMotion = value }
+
+    public fun setZOrder(value: Int): Builder = apply { transformationLayout.zOrder = value }
+    public fun setContainerColor(@ColorInt value: Int): Builder = apply {
       transformationLayout.containerColor = value
     }
 
-    fun setScrimColor(@ColorInt value: Int) = apply { transformationLayout.scrimColor = value }
-    fun setDirection(value: Direction) = apply { transformationLayout.direction = value }
-    fun setFadeMode(value: FadeMode) = apply { transformationLayout.fadeMode = value }
-    fun setFitMode(value: FitMode) = apply { transformationLayout.fitMode = value }
-    fun setOnTransformFinishListener(value: OnTransformFinishListener) = apply {
+    public fun setScrimColor(@ColorInt value: Int): Builder =
+      apply { transformationLayout.scrimColor = value }
+
+    public fun setDirection(value: Direction): Builder =
+      apply { transformationLayout.direction = value }
+
+    public fun setFadeMode(value: FadeMode): Builder =
+      apply { transformationLayout.fadeMode = value }
+
+    public fun setFitMode(value: FitMode): Builder = apply { transformationLayout.fitMode = value }
+    public fun setOnTransformFinishListener(value: OnTransformFinishListener): Builder = apply {
       transformationLayout.onTransformFinishListener = value
     }
 
     @JvmSynthetic
-    fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
+    public fun setOnTransformFinishListener(action: (Boolean) -> Unit) {
       transformationLayout.onTransformFinishListener = OnTransformFinishListener { action(it) }
     }
 
-    fun build() = transformationLayout
+    public fun build(): TransformationLayout = transformationLayout
   }
 }

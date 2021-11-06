@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.skydoves.transformationlayout.TransformationCompat.activityTransitionName
 
 /** An abstract activity extending [AppCompatActivity] with registering transformation automatically. */
-abstract class TransformationAppCompatActivity : AppCompatActivity() {
+public abstract class TransformationAppCompatActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     onTransformationEndContainer(intent.getParcelableExtra(activityTransitionName))
