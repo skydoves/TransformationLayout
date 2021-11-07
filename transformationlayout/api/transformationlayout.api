@@ -186,6 +186,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$Params
 }
 
 public final class com/skydoves/transformationlayout/TransitionExtensionKt {
+	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;)Landroidx/fragment/app/FragmentTransaction;
 	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 	public static synthetic fun addTransformation$default (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;ILjava/lang/Object;)Landroidx/fragment/app/FragmentTransaction;
 	public static final fun onTransformationEndContainer (Landroid/app/Activity;Lcom/skydoves/transformationlayout/TransformationLayout$Params;)V
