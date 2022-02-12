@@ -18,15 +18,15 @@ ext.versions = [
     versionCode      : 11,
     versionName      : '1.1.0',
 
-    gradleBuildTool  : '7.0.2',
-    spotlessGradle   : '6.1.0',
-    ktlintGradle     : '0.41.0',
+    gradleBuildTool  : '7.1.0',
+    spotlessGradle   : '6.2.1',
+    ktlintGradle     : '0.43.2',
     dokkaGradle      : '1.4.32',
     binaryValidator  : '0.8.0',
     mavenPublish     : '0.18.0',
 
     kotlin           : '1.5.32',
-    googleMaterial   : '1.5.0-rc01',
+    googleMaterial   : '1.5.0',
 
     // for demo
     constraintVersion: '2.0.4',
