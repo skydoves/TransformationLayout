@@ -1,7 +1,6 @@
 <h1 align="center">TransformationLayout</h1></br>
 <p align="center"> 
-🌠 Transform into a different view or activity using morphing animations
-<br>using<a href="https://material.io/design/motion/the-motion-system.html" target="_blank"> Transformation motions </a> of new material version.
+🌠 Transform into a different view or activity using morphing animations using<a href="https://material.io/design/motion/the-motion-system.html" target="_blank"> Transformation motions </a> of new material version.
 </p>
 </br>
 
@@ -18,9 +17,9 @@ Go to the [Releases](https://github.com/skydoves/TransformationLayout/releases) 
 
 ## Screenshots
 <p align="center">
-<img src="/preview/preview0.gif" width="32%"/>
-<img src="/preview/preview1.gif" width="32%"/>
-<img src="/preview/preview2.gif" width="32%"/>
+<img src="/preview/preview0.gif" width="280"/>
+<img src="/preview/preview1.gif" width="280"/>
+<img src="/preview/preview2.gif" width="280"/>
 </p>
 
 ## Morphing Animation for Jetpack Compose
@@ -75,7 +74,7 @@ We must wrap one or more views that we want to transform.
 ### Transform into a view
 Here is a simple example of transform fab into a view.
 
-<img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="280"/>
 
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
@@ -160,7 +159,7 @@ transformationLayout.onTransformFinishListener = new OnTransformFinishListener()
 ### Transform into an Activity
 We can implement transformation between activities easily using `TransformationActivity` and `TransformationCompat`.
 
-<img src="/preview/preview2.gif" align="right" width="32%"/>
+<img src="/preview/preview2.gif" align="right" width="270"/>
 
 Here is an example of transforming a floating action button to Activity. <br>
 We don't need to bind a targetView.
@@ -218,7 +217,7 @@ TransformationCompat.startActivity(transformationLayout, intent);
 
 ### Manually Transform into an Activity
 
-<img src="/preview/preview2.gif" align="right" width="32%"/>
+<img src="/preview/preview2.gif" align="right" width="270"/>
 
 Here is an example of transforming a floating action button to Activity. <br>
 We don't need to bind a targetView.
@@ -305,7 +304,7 @@ TransformationCompat.onTransformationEndContainer(this, params);
 We can implement transformation between fragments for a single Activity application.<br>
 Here is an example of transforming a floating action button in Fragment A to Fragment B.
 
-<img src="https://user-images.githubusercontent.com/24237865/80108763-a1e6fa80-85b7-11ea-9350-f9d8ebc46310.gif" align="right" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/80108763-a1e6fa80-85b7-11ea-9350-f9d8ebc46310.gif" align="right" width="270"/>
 
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
