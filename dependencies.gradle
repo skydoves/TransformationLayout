@@ -14,19 +14,18 @@
 
 ext.versions = [
     minSdk           : 21,
-    compileSdk       : 31,
+    compileSdk       : 33,
     versionCode      : 11,
     versionName      : '1.1.0',
 
-    gradleBuildTool  : '7.1.0',
-    spotlessGradle   : '6.2.1',
-    ktlintGradle     : '0.43.2',
-    dokkaGradle      : '1.4.32',
-    binaryValidator  : '0.8.0',
+    gradleBuildTool  : '7.3.1',
+    spotlessGradle   : '6.7.0',
+    dokkaGradle      : '1.7.20',
+    binaryValidator  : '0.12.1',
     mavenPublish     : '0.18.0',
 
-    kotlin           : '1.5.32',
-    googleMaterial   : '1.5.0',
+    kotlin           : '1.7.20',
+    googleMaterial   : '1.7.0',
 
     // for demo
     constraintVersion: '2.0.4',

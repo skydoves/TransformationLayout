@@ -23,28 +23,22 @@ Go to the [Releases](https://github.com/skydoves/TransformationLayout/releases) 
 </p>
 
 ## Morphing Animation for Jetpack Compose
-If you want to implement morphing in your Jetpack Compose project, check out [Orbitary](https://github.com/skydoves/Orbitary).
+If you want to implement morphing animation in Jetpack Compose, check out [Orbital](https://github.com/skydoves/Orbital).
 
 ## Including in your project
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/transformationlayout.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22transformationlayout%22)
-### Gradle 
-Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
-```gradle
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-```
-And add a dependency code to your **module**'s `build.gradle` file.
+
+### Gradle
+Add the dependency below to your **module**'s `build.gradle` file:
+
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:transformationlayout:1.1.1"
+    implementation("com.github.skydoves:transformationlayout:1.1.1")
 }
 ```
 
 ## Usage
-Add following XML namespace inside your XML layout file.
+Add the XML namespace below inside your XML layout file:
 
 ```gradle
 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -52,7 +46,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 
 ### TransformationLayout
 Here is a basic example of implementing `TransformationLayout`. <br>
-We must wrap one or more views that we want to transform.
+We must wrap up one or more views that we want to transform.
 
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
@@ -66,13 +60,13 @@ We must wrap one or more views that we want to transform.
   app:transformation_pathMode="arc" // arc, linear
 >
 
-   <!-- other views -->
+   <!-- other complicated views -->
 
 </com.skydoves.transformationlayout.TransformationLayout>
 ```
 
 ### Transform into a view
-Here is a simple example of transform fab into a view.
+Here is a simple example of transform a fab into a view.
 
 <img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="280"/>
 
