@@ -44,8 +44,9 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
       itemPosterRunningTime.text = item.playtime
       root.setOnClickListener {
         val now = SystemClock.elapsedRealtime()
-        if (now - previousTime >= itemPosterCircleTransformationLayout.duration)
+        if (now - previousTime >= itemPosterCircleTransformationLayout.duration) {
           DetailActivity.startActivity(root.context, itemPosterCircleTransformationLayout, item)
+        }
         previousTime = now
       }
     }

@@ -185,6 +185,14 @@ public final class com/skydoves/transformationlayout/TransformationLayout$Params
 	public fun writeToParcel (Landroid/os/Parcel;I)V
 }
 
+public final class com/skydoves/transformationlayout/TransformationLayout$Params$Creator : android/os/Parcelable$Creator {
+	public fun <init> ()V
+	public final fun createFromParcel (Landroid/os/Parcel;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public synthetic fun createFromParcel (Landroid/os/Parcel;)Ljava/lang/Object;
+	public final fun newArray (I)[Lcom/skydoves/transformationlayout/TransformationLayout$Params;
+	public synthetic fun newArray (I)[Ljava/lang/Object;
+}
+
 public final class com/skydoves/transformationlayout/TransitionExtensionKt {
 	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;)Landroidx/fragment/app/FragmentTransaction;
 	public static final fun addTransformation (Landroidx/fragment/app/FragmentTransaction;Lcom/skydoves/transformationlayout/TransformationLayout;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;

@@ -54,7 +54,6 @@ class MainSingleDetailFragment : Fragment() {
 
     val poster = arguments?.getParcelable<Poster>(posterKey)
     poster?.let {
-
       // [Step2]: sets a transition name to the target view.
       binding.detailContainer.transitionName = poster.name
 

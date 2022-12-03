@@ -52,6 +52,7 @@ internal object DefaultParamValues : TransformationParams {
   override var fitMode: TransformationLayout.FitMode = TransformationLayout.FitMode.AUTO
   override var startElevation: Float = -1f
   override var endElevation: Float = -1f
+
   @ChecksSdkIntAtLeast(api = VERSION_CODES.P)
   override var elevationShadowEnabled: Boolean = VERSION.SDK_INT >= VERSION_CODES.P
   override var holdAtEndEnabled: Boolean = false
