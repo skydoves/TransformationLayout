@@ -1,6 +1,6 @@
 <h1 align="center">TransformationLayout</h1></br>
 <p align="center"> 
-🌠 TransformLayout allows you to transform views, activity, and fragments into other components with container transform animations.
+🌠 Transform views, activity, and fragments into other components with container transform animations.
 </p>
 </br>
 
@@ -33,7 +33,7 @@ Add the dependency below to your **module**'s `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation("com.github.skydoves:transformationlayout:1.1.1")
+    implementation("com.github.skydoves:transformationlayout:1.1.2")
 }
 ```
 
@@ -45,8 +45,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
 ### TransformationLayout
-Here is a basic example of implementing `TransformationLayout`. <br>
-We must wrap up one or more views that we want to transform.
+`TransformationLayout` is an essential concept to transform your Views, Activities, and Fragments into other components. You must wrap one or more Views that are supposed to be transformed using `TransformationLayout` like the example code below:
 
 ```gradle
 <com.skydoves.transformationlayout.TransformationLayout
@@ -66,7 +65,7 @@ We must wrap up one or more views that we want to transform.
 ```
 
 ### Transform into a view
-Here is a simple example of transform a fab into a view.
+For instance, you can transform a floating button into a CardView as you've seen in the example below:
 
 <img src="https://user-images.githubusercontent.com/24237865/75549488-25321700-5a73-11ea-8908-609592907e84.gif" align="right" width="280"/>
 
@@ -95,15 +94,15 @@ Here is a simple example of transform a fab into a view.
     app:cardBackgroundColor="@color/colorPrimary" />
 ```
 
-
 #### Bind a TargetView
-We can bind a targetView that will be transformed from the `TransformationLayout` using the below attribute in XML.<br>
-If you bind a targetView to the `TransformationLayout`, the targetView's visibility will be `GONE`.
+With the attribute below in your XML file, you can bind a `targetView` that should be transformed from the `TransformationLayout`. If you bind a targetView with a `TransformationLayout`, the targetView's visibility will be `GONE` by default.
 
 ```gradle
 app:transformation_targetView="@+id/myCardView"
 ```
-Or we can bind a targetView using method.
+
+You can also bind a targetView with a `TransformationLayout` using `bindTargetView` method like the code below:
+
 ```kotlin
 transformationLayout.bindTargetView(myCardView)
 ```
