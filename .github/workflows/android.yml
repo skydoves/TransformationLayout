@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ '*' ]
+    branches: [ main ]
 
 jobs:
   lint:
@@ -38,25 +38,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+    - uses: actions/checkout@v3.1.0
 
-      - name: set up JDK
-        uses: actions/setup-java@v3.5.1
-        with:
-          distribution: adopt
-          java-version: 11
+    - name: set up JDK
+      uses: actions/setup-java@v3.5.1
+      with:
+        distribution: adopt
+        java-version: 11
 
-      - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
+    - name: Cache Gradle and wrapper
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+           ${{ runner.os }}-gradle-
 
-      - name: Build with Gradle
-        run: ./gradlew build
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
