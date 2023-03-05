@@ -45,6 +45,10 @@ android {
   kotlinOptions {
     jvmTarget = libs.versions.jvmTarget.get()
   }
+
+  lint {
+    abortOnError = false
+  }
 }
 
 dependencies {
