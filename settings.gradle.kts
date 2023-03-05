@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 // Designed and developed by 2020 skydoves (Jaewoong Eum)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,5 +14,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-include ':app', ':transformationlayout'
-rootProject.name='TransformationLayoutDemo'
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+  }
+}
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+
+rootProject.name="TransformationLayoutDemo"
+include(":app")
+include(":transformationlayout")

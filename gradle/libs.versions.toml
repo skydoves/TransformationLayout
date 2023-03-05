@@ -1,0 +1,31 @@
+[versions]
+agp = "7.4.0"
+dokka = "1.7.20"
+nexusPlugin = "1.1.0"
+kotlin = "1.8.10"
+kotlinBinaryCompatibility = "0.12.1"
+javaRelease = "8"
+jvmTarget = "11"
+androidxMaterial = "1.8.0"
+constraintLayout = "2.0.4"
+glide = "4.15.0"
+spotless = "6.7.2"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-test = { id = "com.android.test", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+nexus-plugin = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPlugin" }
+kotlin-binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+
+[libraries]
+agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+androidx-material = { module = "com.google.android.material:material", version.ref = "androidxMaterial" }
+androidx-constraint = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
