@@ -30,7 +30,11 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
   private var previousTime = SystemClock.elapsedRealtime()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
-    val binding = ItemPosterCircleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    val binding = ItemPosterCircleBinding.inflate(
+      LayoutInflater.from(parent.context),
+      parent,
+      false,
+    )
     return PosterViewHolder(binding)
   }
 

@@ -40,13 +40,13 @@ class MainActivity : AppCompatActivity() {
           override fun onPageScrolled(
             position: Int,
             positionOffset: Float,
-            positionOffsetPixels: Int
+            positionOffsetPixels: Int,
           ) = Unit
 
           override fun onPageSelected(position: Int) {
             binding.mainBottomNavigation.menu.getItem(position).isChecked = true
           }
-        }
+        },
       )
     }
 

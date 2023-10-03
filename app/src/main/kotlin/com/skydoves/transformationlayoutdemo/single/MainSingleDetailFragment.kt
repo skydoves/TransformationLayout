@@ -35,7 +35,7 @@ class MainSingleDetailFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
-    savedInstanceState: Bundle?
+    savedInstanceState: Bundle?,
   ): View {
     _binding = ActivityDetailBinding.inflate(inflater, container, false)
     return binding.root

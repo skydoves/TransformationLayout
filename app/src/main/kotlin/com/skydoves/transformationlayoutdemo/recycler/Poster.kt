@@ -25,5 +25,6 @@ data class Poster(
   val release: String,
   val playtime: String,
   val description: String,
-  val poster: String
+  val poster: String,
+  val gif: String?,
 ) : Parcelable
