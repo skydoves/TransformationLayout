@@ -99,6 +99,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$Direct
 	public static final field AUTO Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
 	public static final field ENTER Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
 	public static final field RETURN Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getValue ()I
 	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
 	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$Direction;
@@ -109,6 +110,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$FadeMo
 	public static final field IN Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
 	public static final field OUT Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
 	public static final field THROUGH Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getValue ()I
 	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
 	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;
@@ -118,6 +120,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$FitMod
 	public static final field AUTO Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
 	public static final field HEIGHT Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
 	public static final field WIDTH Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getValue ()I
 	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
 	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
@@ -126,6 +129,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$FitMod
 public final class com/skydoves/transformationlayout/TransformationLayout$Motion : java/lang/Enum {
 	public static final field ARC Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
 	public static final field LINEAR Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getPathMotion ()Landroid/transition/PathMotion;
 	public static fun valueOf (Ljava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
 	public static fun values ()[Lcom/skydoves/transformationlayout/TransformationLayout$Motion;
