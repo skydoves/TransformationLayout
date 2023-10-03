@@ -32,6 +32,7 @@ rootProject.extra.apply {
 apply(from ="${rootDir}/scripts/publish-module.gradle")
 
 android {
+  namespace = "com.skydoves.transformationlayout"
   compileSdk = Configuration.compileSdk
   defaultConfig {
     minSdk = Configuration.minSdk
@@ -45,8 +46,8 @@ android {
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
 
   kotlinOptions {

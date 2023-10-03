@@ -26,7 +26,7 @@ import com.skydoves.transformationlayoutdemo.databinding.ItemPosterBinding
 
 class PosterSingleAdapter
 constructor(
-  private val delegate: PosterDelegate
+  private val delegate: PosterDelegate,
 ) : RecyclerView.Adapter<PosterSingleAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()

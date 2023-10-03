@@ -48,7 +48,7 @@ class DetailActivity : TransformationAppCompatActivity() {
     fun startActivity(
       context: Context,
       transformationLayout: TransformationLayout,
-      poster: Poster
+      poster: Poster,
     ) {
       val intent = Intent(context, DetailActivity::class.java)
       intent.putExtra(posterExtraName, poster)

@@ -32,7 +32,7 @@ class RadioFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
-    savedInstanceState: Bundle?
+    savedInstanceState: Bundle?,
   ): View {
     _binding = FragmentRadioBinding.inflate(inflater, container, false)
     return binding.root
@@ -42,13 +42,15 @@ class RadioFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     with(binding) {
-      recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(MockUtil.getMockPosters()) }
+      recyclerView.adapter = PosterCircleAdapter().apply {
+        addPosterList(MockUtil.getMockPosters())
+      }
 
       fab.setOnClickListener {
         DetailActivity.startActivity(
           requireContext(),
           transformationLayoutFab,
-          MockUtil.getMockPoster()
+          MockUtil.getMockPoster(),
         )
       }
     }

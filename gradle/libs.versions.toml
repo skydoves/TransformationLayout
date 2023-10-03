@@ -1,15 +1,14 @@
 [versions]
-agp = "7.4.0"
-dokka = "1.7.20"
+agp = "8.1.2"
+dokka = "1.9.0"
 nexusPlugin = "1.1.0"
-kotlin = "1.8.10"
-kotlinBinaryCompatibility = "0.12.1"
-javaRelease = "8"
+kotlin = "1.9.10"
+kotlinBinaryCompatibility = "0.13.2"
 jvmTarget = "11"
-androidxMaterial = "1.8.0"
-constraintLayout = "2.0.4"
-glide = "4.15.0"
-spotless = "6.7.2"
+androidxMaterial = "1.9.0"
+constraintLayout = "2.1.4"
+glide = "4.16.0"
+spotless = "6.21.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

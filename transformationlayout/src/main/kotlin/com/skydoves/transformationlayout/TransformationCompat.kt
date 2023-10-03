@@ -36,7 +36,7 @@ public object TransformationCompat {
   @JvmStatic
   public fun startActivity(
     transformationLayout: TransformationLayout,
-    intent: Intent
+    intent: Intent,
   ) {
     transformationLayout.startActivityWithBundleOptions(intent) { workedIntent, bundle ->
       ActivityCompat.startActivity(transformationLayout.context, workedIntent, bundle)
@@ -51,7 +51,7 @@ public object TransformationCompat {
   public fun startActivityForResult(
     transformationLayout: TransformationLayout,
     intent: Intent,
-    requestCode: Int
+    requestCode: Int,
   ) {
     val activity = transformationLayout.context.getActivity()
     if (activity != null) {
@@ -68,7 +68,7 @@ public object TransformationCompat {
   @JvmStatic
   public fun onTransformationEndContainerApplyParams(activity: Activity) {
     activity.onTransformationEndContainer(
-      activity.intent.getParcelableExtra(activityTransitionName)
+      activity.intent.getParcelableExtra(activityTransitionName),
     )
   }
 
@@ -80,7 +80,10 @@ public object TransformationCompat {
 
   /** sets an enter shared element callback to activity for implementing shared element transition. */
   @JvmStatic
-  public fun onTransformationEndContainer(activity: Activity, params: TransformationLayout.Params?) {
+  public fun onTransformationEndContainer(
+    activity: Activity,
+    params: TransformationLayout.Params?,
+  ) {
     activity.onTransformationEndContainer(params)
   }
 
@@ -92,7 +95,10 @@ public object TransformationCompat {
 
   /** sets an enter shared element callback to fragment for implementing shared element transition. */
   @JvmStatic
-  public fun onTransformationEndContainer(fragment: Fragment, params: TransformationLayout.Params?) {
+  public fun onTransformationEndContainer(
+    fragment: Fragment,
+    params: TransformationLayout.Params?,
+  ) {
     fragment.onTransformationEndContainer(params)
   }
 
@@ -101,14 +107,14 @@ public object TransformationCompat {
   public fun addTransformation(
     fragmentTransaction: FragmentTransaction,
     transformationLayout: TransformationLayout,
-    transitionName: String? = null
+    transitionName: String? = null,
   ) {
     fragmentTransaction.addTransformation(transformationLayout, transitionName)
   }
 
   private inline fun TransformationLayout.startActivityWithBundleOptions(
     intent: Intent,
-    block: (Intent, Bundle) -> Unit
+    block: (Intent, Bundle) -> Unit,
   ) {
     val now = SystemClock.elapsedRealtime()
     if (now - throttledTime > duration) {

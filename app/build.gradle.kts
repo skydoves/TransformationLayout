@@ -24,6 +24,7 @@ plugins {
 }
 
 android {
+  namespace = "com.skydoves.transformationlayoutdemo"
   compileSdk = Configuration.compileSdk
   defaultConfig {
     applicationId = "com.skydoves.transformationlayoutdemo"
