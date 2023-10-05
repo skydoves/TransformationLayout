@@ -349,7 +349,7 @@ Landroidx/appcompat/widget/AppCompatTextHelper;
 HPLandroidx/appcompat/widget/AppCompatTextHelper;-><init>(Landroid/widget/TextView;)V
 HPLandroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 HSPLandroidx/appcompat/widget/AppCompatTextHelper;->createTintInfo(Landroid/content/Context;Landroidx/appcompat/widget/AppCompatDrawableManager;I)Landroidx/appcompat/widget/TintInfo;
-HPLandroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+HSPLandroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 HSPLandroidx/appcompat/widget/AppCompatTextHelper;->onLayout(ZIIII)V
 HPLandroidx/appcompat/widget/AppCompatTextHelper;->onSetTextAppearance(Landroid/content/Context;I)V
 HSPLandroidx/appcompat/widget/AppCompatTextHelper;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
@@ -905,7 +905,6 @@ HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->isResolvedVerticall
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->isVerticalSolvingPassDone()Z
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->markHorizontalSolvingPassDone()V
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->markVerticalSolvingPassDone()V
-HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->reset()V
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->resetFinalResolution()V
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->resetSolverVariables(Landroidx/constraintlayout/core/Cache;)V
 HPLandroidx/constraintlayout/core/widgets/ConstraintWidget;->setBaselineDistance(I)V
@@ -993,7 +992,6 @@ HPLandroidx/constraintlayout/core/widgets/WidgetContainer;->removeAllChildren()V
 HPLandroidx/constraintlayout/core/widgets/WidgetContainer;->resetSolverVariables(Landroidx/constraintlayout/core/Cache;)V
 Landroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;
 HPLandroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;-><init>(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;)V
-HPLandroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;->measure(Landroidx/constraintlayout/core/widgets/analyzer/BasicMeasure$Measurer;Landroidx/constraintlayout/core/widgets/ConstraintWidget;I)Z
 HPLandroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;->measureChildren(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;)V
 HPLandroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;->solveLinearSystem(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;Ljava/lang/String;III)V
 HPLandroidx/constraintlayout/core/widgets/analyzer/BasicMeasure;->solverMeasure(Landroidx/constraintlayout/core/widgets/ConstraintWidgetContainer;IIIIIIIII)J
@@ -1029,6 +1027,7 @@ HSPLandroidx/constraintlayout/widget/ConstraintLayout;-><clinit>()V
 HPLandroidx/constraintlayout/widget/ConstraintLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 HPLandroidx/constraintlayout/widget/ConstraintLayout;->access$000(Landroidx/constraintlayout/widget/ConstraintLayout;)I
 HPLandroidx/constraintlayout/widget/ConstraintLayout;->access$100(Landroidx/constraintlayout/widget/ConstraintLayout;)Ljava/util/ArrayList;
+HPLandroidx/constraintlayout/widget/ConstraintLayout;->applyConstraintsFromLayoutParams(ZLandroid/view/View;Landroidx/constraintlayout/core/widgets/ConstraintWidget;Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 HPLandroidx/constraintlayout/widget/ConstraintLayout;->checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
 HPLandroidx/constraintlayout/widget/ConstraintLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
 HPLandroidx/constraintlayout/widget/ConstraintLayout;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
@@ -1050,7 +1049,8 @@ HPLandroidx/constraintlayout/widget/ConstraintLayout;->updateHierarchy()Z
 Landroidx/constraintlayout/widget/ConstraintLayout$1;
 HSPLandroidx/constraintlayout/widget/ConstraintLayout$1;-><clinit>()V
 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
-HPLandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveLayoutDirection(I)V
+HPLandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+HSPLandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->resolveLayoutDirection(I)V
 HPLandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->validate()V
 Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams$Table;
 HSPLandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams$Table;-><clinit>()V
@@ -2713,7 +2713,7 @@ HSPLandroidx/recyclerview/widget/RecyclerView$Recycler;->onAdapterChanged(Landro
 HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->recycleAndClearCachedViews()V
 HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->scrapView(Landroid/view/View;)V
 HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->tryBindViewHolderByDeadline(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIJ)Z
-HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->tryGetViewHolderForPositionByDeadline(IZJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+HSPLandroidx/recyclerview/widget/RecyclerView$Recycler;->tryGetViewHolderForPositionByDeadline(IZJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->unscrapView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
 HSPLandroidx/recyclerview/widget/RecyclerView$Recycler;->updateViewCacheSize()V
 HPLandroidx/recyclerview/widget/RecyclerView$Recycler;->validateViewHolderForOffsetPosition(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
@@ -5269,7 +5269,6 @@ HPLcom/google/android/material/shape/ShapeAppearanceModel;->getTopLeftCorner()Lc
 HPLcom/google/android/material/shape/ShapeAppearanceModel;->getTopLeftCornerSize()Lcom/google/android/material/shape/CornerSize;
 HPLcom/google/android/material/shape/ShapeAppearanceModel;->getTopRightCorner()Lcom/google/android/material/shape/CornerTreatment;
 HPLcom/google/android/material/shape/ShapeAppearanceModel;->getTopRightCornerSize()Lcom/google/android/material/shape/CornerSize;
-HPLcom/google/android/material/shape/ShapeAppearanceModel;->isRoundRect(Landroid/graphics/RectF;)Z
 HPLcom/google/android/material/shape/ShapeAppearanceModel;->toBuilder()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 HPLcom/google/android/material/shape/ShapeAppearanceModel;->withTransformedCornerSizes(Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;)Lcom/google/android/material/shape/ShapeAppearanceModel;
 Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
@@ -5310,7 +5309,8 @@ Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;
 Lcom/google/android/material/shape/ShapeAppearancePathProvider;
 HSPLcom/google/android/material/shape/ShapeAppearancePathProvider;-><init>()V
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->angleOfEdge(I)F
-HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->appendCornerPath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
+HSPLcom/google/android/material/shape/ShapeAppearancePathProvider;->appendCornerPath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
+HSPLcom/google/android/material/shape/ShapeAppearancePathProvider;->appendEdgePath(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->calculatePath(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Landroid/graphics/Path;)V
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->calculatePath(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;Landroid/graphics/Path;)V
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->getCoordinatesOfCorner(ILandroid/graphics/RectF;Landroid/graphics/PointF;)V
@@ -5319,7 +5319,7 @@ HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->getCornerTrea
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->getEdgeCenterForIndex(Landroid/graphics/RectF;I)F
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->getEdgeTreatmentForIndex(ILcom/google/android/material/shape/ShapeAppearanceModel;)Lcom/google/android/material/shape/EdgeTreatment;
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->getInstance()Lcom/google/android/material/shape/ShapeAppearancePathProvider;
-HSPLcom/google/android/material/shape/ShapeAppearancePathProvider;->pathOverlapsCorner(Landroid/graphics/Path;I)Z
+HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->pathOverlapsCorner(Landroid/graphics/Path;I)Z
 HSPLcom/google/android/material/shape/ShapeAppearancePathProvider;->setCornerPathAndTransform(Lcom/google/android/material/shape/ShapeAppearancePathProvider$ShapeAppearancePathSpec;I)V
 HPLcom/google/android/material/shape/ShapeAppearancePathProvider;->setEdgePathAndTransform(I)V
 Lcom/google/android/material/shape/ShapeAppearancePathProvider$Lazy;
@@ -5341,7 +5341,7 @@ HPLcom/google/android/material/shape/ShapePath;->getEndX()F
 HPLcom/google/android/material/shape/ShapePath;->getEndY()F
 HPLcom/google/android/material/shape/ShapePath;->getStartX()F
 HPLcom/google/android/material/shape/ShapePath;->getStartY()F
-HPLcom/google/android/material/shape/ShapePath;->lineTo(FF)V
+HSPLcom/google/android/material/shape/ShapePath;->lineTo(FF)V
 HPLcom/google/android/material/shape/ShapePath;->reset(FF)V
 HPLcom/google/android/material/shape/ShapePath;->reset(FFFF)V
 HPLcom/google/android/material/shape/ShapePath;->setCurrentShadowAngle(F)V

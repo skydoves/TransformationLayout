@@ -71,6 +71,7 @@ android {
 baselineProfile {
   filter {
     include("com.skydoves.transformationlayout.**")
+    exclude("com.skydoves.transformationlayoutdemo.**")
   }
 }
 
