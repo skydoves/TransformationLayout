@@ -22,6 +22,7 @@ plugins {
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.kotlin.parcelize.get().pluginId)
   id(libs.plugins.nexus.plugin.get().pluginId)
+  id(libs.plugins.androidx.baselineprofile.get().pluginId)
 }
 
 apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
@@ -45,7 +46,6 @@ android {
   compileSdk = Configuration.compileSdk
   defaultConfig {
     minSdk = Configuration.minSdk
-    targetSdk = Configuration.targetSdk
   }
 
   resourcePrefix = "transformation"
@@ -68,6 +68,13 @@ android {
   }
 }
 
+baselineProfile {
+  filter {
+    include("com.skydoves.transformationlayout.**")
+    exclude("com.skydoves.transformationlayoutdemo.**")
+  }
+}
+
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
   kotlinOptions.freeCompilerArgs += listOf(
     "-Xexplicit-api=strict"
@@ -76,4 +83,6 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 dependencies {
   implementation(libs.androidx.material)
+
+  baselineProfile(project(":baselineprofile"))
 }

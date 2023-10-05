@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":baselineprofile")
+
+
 // Designed and developed by 2020 skydoves (Jaewoong Eum)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");

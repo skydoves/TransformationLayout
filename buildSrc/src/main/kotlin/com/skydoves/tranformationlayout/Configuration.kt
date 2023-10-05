@@ -17,8 +17,8 @@
 package com.skydoves.tranformationlayout
 
 object Configuration {
-  const val compileSdk = 33
-  const val targetSdk = 33
+  const val compileSdk = 34
+  const val targetSdk = 34
   const val minSdk = 21
   const val majorVersion = 1
   const val minorVersion = 1

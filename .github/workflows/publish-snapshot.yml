@@ -24,7 +24,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Release build
-        run: ./gradlew assemble --scan -x :benchmark:pixel6api31Setup -x :benchmark:pixel6api31NonMinifiedReleaseAndroidTest -x :benchmark:collectNonMinifiedReleaseBaselineProfile
+        run: ./gradlew assemble --scan -x :baselineprofile:pixel6api31Setup -x :baselineprofile:pixel6api31NonMinifiedReleaseAndroidTest -x :baselineprofile:collectNonMinifiedReleaseBaselineProfile
 
       - name: Publish to MavenCentral
         run: |

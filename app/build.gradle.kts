@@ -21,6 +21,7 @@ plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.kotlin.parcelize.get().pluginId)
+  id(libs.plugins.androidx.baselineprofile.get().pluginId)
 }
 
 android {
@@ -47,6 +48,15 @@ android {
     jvmTarget = libs.versions.jvmTarget.get()
   }
 
+  buildTypes {
+    create("benchmark") {
+      initWith(buildTypes.getByName("release"))
+      signingConfig = signingConfigs.getByName("debug")
+      matchingFallbacks += listOf("release")
+      isDebuggable = false
+    }
+  }
+
   lint {
     abortOnError = false
   }
@@ -58,4 +68,7 @@ dependencies {
   implementation(libs.androidx.material)
   implementation(libs.androidx.constraint)
   implementation(libs.glide)
+  implementation(libs.profileinstaller)
+
+  baselineProfile(project(":baselineprofile"))
 }
