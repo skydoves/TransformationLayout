@@ -1,5 +1,7 @@
 package com.skydoves.transformationlayout.benchmark
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.benchmark.macro.junit4.BaselineProfileRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -27,6 +29,7 @@ import org.junit.runner.RunWith
  * After you run the generator, you can verify the improvements running the [StartupBenchmarks] benchmark.
  **/
 @RunWith(AndroidJUnit4::class)
+@RequiresApi(Build.VERSION_CODES.P)
 @LargeTest
 class BaselineProfileGenerator {
 
