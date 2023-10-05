@@ -21,6 +21,7 @@ plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.kotlin.parcelize.get().pluginId)
+  id(libs.plugins.androidx.baselineprofile.get().pluginId)
 }
 
 android {
@@ -58,4 +59,7 @@ dependencies {
   implementation(libs.androidx.material)
   implementation(libs.androidx.constraint)
   implementation(libs.glide)
+  implementation(libs.profileinstaller)
+
+  baselineProfile(project(":baselineprofile"))
 }
