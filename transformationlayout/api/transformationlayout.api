@@ -154,7 +154,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$Params
 	public final fun component9 ()Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;
 	public final fun copy (JLcom/skydoves/transformationlayout/TransformationLayout$Motion;IIIILcom/skydoves/transformationlayout/TransformationLayout$Direction;Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;FFZZLjava/lang/String;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
 	public static synthetic fun copy$default (Lcom/skydoves/transformationlayout/TransformationLayout$Params;JLcom/skydoves/transformationlayout/TransformationLayout$Motion;IIIILcom/skydoves/transformationlayout/TransformationLayout$Direction;Lcom/skydoves/transformationlayout/TransformationLayout$FadeMode;Lcom/skydoves/transformationlayout/TransformationLayout$FitMode;FFZZLjava/lang/String;ILjava/lang/Object;)Lcom/skydoves/transformationlayout/TransformationLayout$Params;
-	public fun describeContents ()I
+	public final fun describeContents ()I
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getAllContainerColors ()I
 	public fun getContainerColor ()I
@@ -186,7 +186,7 @@ public final class com/skydoves/transformationlayout/TransformationLayout$Params
 	public final fun setTransitionName (Ljava/lang/String;)V
 	public fun setZOrder (I)V
 	public fun toString ()Ljava/lang/String;
-	public fun writeToParcel (Landroid/os/Parcel;I)V
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
 }
 
 public final class com/skydoves/transformationlayout/TransformationLayout$Params$Creator : android/os/Parcelable$Creator {
